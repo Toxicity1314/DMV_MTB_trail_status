@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: DMV_MTB_trail_status_production
-  username: DMV_MTB_trail_status
-  password: <%= ENV["DMV_MTB_TRAIL_STATUS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

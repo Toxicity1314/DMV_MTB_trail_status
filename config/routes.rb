@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :rain_totals
   resources :comments
   resources :trail_systems
-  resources :users
+  resources :users, only:[:show, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get '/hello', to: 'application#hello_world'
+  post "/login", to: "sessions#create"
 
   #custom route for requests that are not requests for the API
   get '*path',

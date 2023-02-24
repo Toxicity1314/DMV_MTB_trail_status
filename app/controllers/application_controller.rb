@@ -1,11 +1,13 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
-rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+    
+    # uncomment to utilize authorization
+    # before_action :authorized
 
-    def hello_world
-        session[:count] = (session[:count] || 0) + 1
-        render json: { count: session[:count] }
-    end
+    # def authorized
+    #     return render json:{error: "Not Authorized"}, status: :unauthorized unless session.include? :user_id
+    # end
 
     private
     def render_not_found exception

@@ -6,16 +6,12 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container"
 import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+function Login() {
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
     username: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
+    password: ""
   });
   const [errors, setErrors] = useState([]);
 
@@ -60,30 +56,6 @@ function SignUp() {
     <Container>
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            name="first_name"
-            placeholder="First name"
-            onChange={(e) => handleChange(e)}
-            value={formData.first_name}
-            />
-          {validated && errorHandler("First")}
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
-          <Form.Label>Last name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            name="last_name"
-            placeholder="Last name"
-            onChange={(e) => handleChange(e)}
-            value={formData.last_name}
-          />
-          {validated && errorHandler("Last")}
-        </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustomUsername">
           <Form.Label>username</Form.Label>
           <Form.Control
@@ -98,19 +70,7 @@ function SignUp() {
         </Form.Group>
       </Row>
       <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            required
-            type="email"
-            name="email"
-            placeholder="email"
-            onChange={(e) => handleChange(e)}
-            value={formData.email}
-            />
-          {validated && errorHandler("Email")}
-        </Form.Group>
-        <Form.Group as={Col} md="3" controlId="formBasicPassword">
+        <Form.Group as={Col} md="4" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             required
@@ -122,17 +82,6 @@ function SignUp() {
             />
           {validated && errorHandler("Password")}
         </Form.Group>
-        <Form.Group as={Col} md="3" controlId="formBasicPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            name="password_confirmation"
-            placeholder="Confirm password"
-            onChange={(e) => handleChange(e)}
-            value={formData.password_confirmation}
-            />
-        </Form.Group>
       </Row>
       <Button type="submit">Submit form</Button>
     </Form>
@@ -140,4 +89,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Login;

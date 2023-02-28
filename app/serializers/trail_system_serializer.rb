@@ -1,4 +1,4 @@
 class TrailSystemSerializer < ActiveModel::Serializer
-  attributes :id, :trail_map, :address, :lat, :long
+  attributes :id, :name, :trail_map, :address, :lat, :long
   has_many :issues
 end

@@ -26,3 +26,12 @@ t16 = Trail.create(name: "Sunshine Trail", trail_system_id: ts1.id)
 t17 = Trail.create(name: "USGS Trail", trail_system_id: ts1.id)
 
 i1 = Issue.create(trail_id: t14.id, issue:"treedown")
+
+ts2 = TrailSystem.create(name: "Motts Run Reservoir", lat: 38.319306, long: -77.553750, address: "Motts Run Access Rd, Fredericksburg, VA 22407", trail_map: "https://fredtrails.org/wp-content/uploads/2021/12/motts_trail_map_ed005.png" )
+
+t18 = Trail.create(name: "Duff Green Trail", trail_system_id: ts2.id)
+t19 = Trail.create(name: "Olde Towne Trail", trail_system_id: ts2.id)
+t20 = Trail.create(name: "Reservoir Trail", trail_system_id: ts2.id)
+t21 = Trail.create(name: "Rock Mine Trail", trail_system_id: ts2.id)
+t22 = Trail.create(name: "Snuffleupagus Trail", trail_system_id: ts2.id)
+t23 = Trail.create(name: "Trench Hill Trail", trail_system_id: ts2.id)

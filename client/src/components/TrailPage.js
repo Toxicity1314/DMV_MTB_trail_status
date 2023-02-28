@@ -19,9 +19,9 @@ function TrailPage() {
   let issues = trail ? trail.issues.map(issue => <li key={issue.id}>{issue.issue}</li>):""
   console.log(issues)
   return (
-    <div>
+    <div style={{width:"80%", marginLeft: "10%"}}>
         <ul>{issues}</ul>
-        <img src={trail.trail_map} alt="trail map"/>
+        <img style={{width:"100%"}} src={trail.trail_map} alt="trail map"/>
     </div>
   );
 }

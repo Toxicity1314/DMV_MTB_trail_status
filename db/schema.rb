@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_144711) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_214837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,7 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_144711) do
   end
 
   create_table "rain_totals", force: :cascade do |t|
-    t.float "precipitation_last_3_hours"
+    t.float "precipitation_last_hour"
+    t.integer "hour"
     t.bigint "trail_system_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_144711) do
     t.float "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "trail_forks_id"
   end
 
   create_table "trails", force: :cascade do |t|

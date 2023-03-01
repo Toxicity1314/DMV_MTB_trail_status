@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import {UserContext} from "../context/user"
 import { NavLink } from "react-router-dom";
 
 function NavBar() {
+  const {user, setUser} = useContext(UserContext)
+  console.log(user)
+  console.log(user ? "here":"or here")
+
   let activeStyle = {
     color: "red"
   };
+
+  const handleLogOut = ()=>{
+    setUser(null)
+    fetch("/logout",{
+      method: "DELETE"
+    })
+  }
 
   return (
     <nav className="NavBar">
@@ -43,14 +55,19 @@ function NavBar() {
         SignUp
       </NavLink>
       
-        <NavLink
+        { user ? (<NavLink
+        onClick={handleLogOut}
+        
+      >
+        Logout
+      </NavLink>):(<NavLink
         to="Login"
         style={({isActive}) =>
         isActive ? activeStyle : undefined
         
       }>
         Login
-      </NavLink>
+      </NavLink>)}
     </nav>
   );
 }

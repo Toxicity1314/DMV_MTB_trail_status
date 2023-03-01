@@ -6,12 +6,14 @@ import TrailPage from "./components/TrailPage";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login"
 import Explore from "./components/Explore"
+import { UserProvider } from "./context/user"
 
 function App() {
 
 
   return (
     <div className="App">
+      <UserProvider>
       <NavBar/>
       <Routes>
         <Route path="/Home" element={<Home/>} />
@@ -20,6 +22,7 @@ function App() {
         <Route path="/Login" element={<Login/>}/>
         <Route path="/Explore" element={<Explore/>}/>
       </Routes>
+      </UserProvider>
     </div>
   );
 }

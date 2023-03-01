@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import {UserContext} from "../context/user"
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -7,6 +8,7 @@ import Container from "react-bootstrap/Container"
 import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const {user, setUser} = useContext(UserContext)
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
@@ -24,21 +26,21 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setValidated(true);
-    fetch(`/users`, {
+    fetch(`/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => console.log(user));
+        res.json().then((user) => setUser(user.username));
         setErrors([]);
+
         navigate("/TrailSystem/1");
       } else {
         res.json().then((err) => setErrors(err.errors));
       }
     });
   };
-  console.log(errors);
   const errorHandler = (item) => {
     let i = 0;
     let list = errors.filter((error) => error.includes(item));

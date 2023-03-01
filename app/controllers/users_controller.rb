@@ -9,6 +9,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def auth
+        user = User.find_by(id: session[:user_id])
+        if user
+        render json: user
+        else
+            head :see_other
+        end
+    end
+
     private
 
     def user_params

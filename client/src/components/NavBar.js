@@ -1,11 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import {UserContext} from "../context/user"
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
+  const {user, setUser} = useContext(UserContext)
+  console.log(user)
+  console.log(user ? "here":"or here")
+
+  let activeStyle = {
+    color: "red"
+  };
+
+  const handleLogOut = ()=>{
+    setUser(null)
+    fetch("/logout",{
+      method: "DELETE"
+    })
+  }
 
   return (
-    <div className="NavBar">
-        test
-    </div>
+    <nav className="NavBar">
+        <NavLink
+        to="Home"
+        style={({isActive}) =>
+        isActive ? activeStyle : undefined
+        
+      }
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="Explore"
+        style={({isActive}) =>
+        isActive ? activeStyle : undefined
+        
+      }>
+        Explore
+      </NavLink>
+      <NavLink
+        to="About"
+        style={({isActive}) =>
+        isActive ? activeStyle : undefined
+        
+      }>
+        About
+      </NavLink>
+      <NavLink
+        to="SignUp"
+        style={({isActive}) =>
+        isActive ? activeStyle : undefined
+        
+      }>
+        SignUp
+      </NavLink>
+      
+        { user ? (<NavLink
+        onClick={handleLogOut}
+        
+      >
+        Logout
+      </NavLink>):(<NavLink
+        to="Login"
+        style={({isActive}) =>
+        isActive ? activeStyle : undefined
+        
+      }>
+        Login
+      </NavLink>)}
+    </nav>
   );
 }
 

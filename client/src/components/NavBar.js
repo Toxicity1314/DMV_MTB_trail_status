@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 
 function NavBar() {
   const {user, setUser} = useContext(UserContext)
-  console.log(user)
-  console.log(user ? "here":"or here")
 
   let activeStyle = {
     color: "red"
@@ -46,14 +44,6 @@ function NavBar() {
       }>
         About
       </NavLink>
-      <NavLink
-        to="SignUp"
-        style={({isActive}) =>
-        isActive ? activeStyle : undefined
-        
-      }>
-        SignUp
-      </NavLink>
       
         { user ? (<NavLink
         onClick={handleLogOut}
@@ -67,6 +57,14 @@ function NavBar() {
         
       }>
         Login
+      </NavLink>)}
+      {user ? (`Welcome ${user}`):(<NavLink
+        to="SignUp"
+        style={({isActive}) =>
+        isActive ? activeStyle : undefined
+        
+      }>
+        SignUp
       </NavLink>)}
     </nav>
   );

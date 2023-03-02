@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import {UserContext} from "../context/user"
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -7,6 +8,7 @@ import Container from "react-bootstrap/Container"
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
+  const {setUser} = useContext(UserContext)
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
@@ -34,7 +36,7 @@ function SignUp() {
       body: JSON.stringify(formData),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => console.log(user));
+        res.json().then((user) => setUser(user.username));
         setErrors([]);
         navigate("/TrailSystem/1");
       } else {
@@ -52,6 +54,8 @@ function SignUp() {
       if (!last.includes(item)) {
         last.push(item);
         return <li key={i}>{item}</li>;
+      }else{
+        return null
       }
     });
   };

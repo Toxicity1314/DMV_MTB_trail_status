@@ -1,27 +1,28 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
 
-function TrailMap({ trail }) {
-  
+function TrailMap({ trail, reload, setReload }) {
+
   useEffect(() =>{
-  
-  const script = document.createElement("script");
-  script.id ="trailForks"
-  script.setAttribute(
-    "src",
-    "https://es.pinkbike.org/ttl-86400/sprt/j/trailforks/widget.js"
-    );
-
-    document.getElementsByTagName("head")[0].appendChild(script);    
-
-    return () =>{
-      document.getElementById("trailForks").remove();
-    }
-  })
+      const script = document.createElement("script");
+      script.id ="trailForks"
+      // script.src = "https://es.pinkbike.org/ttl-86400/sprt/j/trailforks/widget.js"
+      script.async = true
+      script.setAttribute(
+        "src",
+        "https://es.pinkbike.org/ttl-86400/sprt/j/trailforks/widget.js"
+        );
+        document.head.appendChild(script)
+        // document.getElementsByTagName("head")[0].appendChild(script); 
+        const widgetCheck = false 
+        return () =>{
+          document.getElementById("trailForks").remove();
+        }
+      
+  },[])
 
   return (
-    <div style={{ width: "80%", marginLeft: "10%" }}>
       <div
+      id = "trailForks2"
         className="TrailforksWidgetMap"
         data-w="800px"
         data-h="400px"
@@ -38,8 +39,7 @@ function TrailMap({ trail }) {
         data-lon=""
         data-hideunsanctioned="0"
       ></div>
-    </div>
-  );
+  )
 }
 
 export default TrailMap;

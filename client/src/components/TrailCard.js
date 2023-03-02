@@ -1,18 +1,13 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
 import Stack from 'react-bootstrap/Stack'
-import {useNavigate} from "react-router-dom"
+import {useNavigate, redirect} from "react-router-dom"
 
 
 
 
 function TrailCard({trail}) {
     let navigate = useNavigate()
-    const handleClick = ()=>{
-
-
-    }
-
 
   let issues = trail.issues.map(issue => {
 
@@ -20,7 +15,7 @@ function TrailCard({trail}) {
 })
   
    return (
-    <Card style={{width: '80%'}} onClick={()=>navigate(`/TrailSystem/${trail.id}`)}>
+    <Card style={{width: '80%'}} onClick={()=>window.location.assign(`/TrailSystem/${trail.id}`)}>
         <Stack direction ="horizontal" gap={1}>
         <Card.Img style={{width: "25%"}} src={trail.trail_map} alt="trail map"/>
         <Card.Body>

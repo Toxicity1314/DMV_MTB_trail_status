@@ -1,2 +1,3 @@
 class RainTotalsController < ApplicationController
+    
 end

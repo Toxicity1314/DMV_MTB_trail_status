@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchHandler } from "../Fetch";
 import TrailMap from "./TrailMap";
@@ -9,8 +9,7 @@ function TrailPage() {
 
   useEffect(() => {
     fetchHandler({ url: `/trail_systems/${id}`, set: setTrail });
-    
-  },[]);
+  }, [id]);
 
   let issues = trail
     ? trail.issues.map((issue) => <li key={issue.id}>{issue.issue}</li>)
@@ -19,7 +18,7 @@ function TrailPage() {
   return (
     <div style={{ width: "80%", marginLeft: "10%" }}>
       <ul>{issues}</ul>
-      {trail ? <TrailMap trail={trail}/> : ""}
+      {trail ? <TrailMap trail={trail} /> : ""}
       <h3 style={{ textAlign: "center" }}>Rainfall last 24/48/72 hours</h3>
       <h3
         style={{ textAlign: "center" }}

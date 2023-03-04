@@ -1,5 +1,6 @@
 class RainTotal < ApplicationRecord
   belongs_to :trail_system
+  validates :hour, uniqueness: true
 
   def self.precip trail_id, time_frame
     precip_total = 0

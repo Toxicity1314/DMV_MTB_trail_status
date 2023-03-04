@@ -47,6 +47,8 @@ group :development do
   gem "spring"
 end
 
-gem "httparty"
+gem "httparty", "~> 0.21.0"
+gem "whenever", "~> 1.0.0"
+gem "net-http"
 
 gem "active_model_serializers", "~> 0.10.13"

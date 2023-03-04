@@ -15,7 +15,8 @@ function NavBar() {
     setButtonPressed(false);
   };
   const handleShow = (e) => {
-    setButtonPressed(e.target.value);
+    console.log(e.target.name)
+    setButtonPressed(e.target.name);
     setShow(true);
   };
 
@@ -55,14 +56,14 @@ function NavBar() {
       {user ? (
         <NavLink onClick={handleLogOut}>Logout</NavLink>
       ) : (
-        <NavLink variant="primary" onClick={handleShow} value="Login">
+        <NavLink variant="primary" onClick={handleShow} name="Login">
           Login
         </NavLink>
       )}
       {user ? (
         `Welcome ${user}`
       ) : (
-        <NavLink variant="primary" onClick={handleShow} value="Sign up">
+        <NavLink variant="primary" onClick={handleShow} name="Sign up">
           SignUp
         </NavLink>
       )}

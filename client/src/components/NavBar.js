@@ -1,9 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../context/user";
 import { NavLink } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import SignUp from "./SignUp";
+import Login from "./Login";
 
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
+  const [show, setShow] = useState(false);
+  const [buttonPressed, setButtonPressed] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    setButtonPressed(false);
+  };
+  const handleShow = (e) => {
+    setButtonPressed(e.target.value);
+    setShow(true);
+  };
 
   let activeStyle = {
     color: "red",
@@ -41,23 +55,29 @@ function NavBar() {
       {user ? (
         <NavLink onClick={handleLogOut}>Logout</NavLink>
       ) : (
-        <NavLink
-          to="Login"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
+        <NavLink variant="primary" onClick={handleShow} value="Login">
           Login
         </NavLink>
       )}
       {user ? (
         `Welcome ${user}`
       ) : (
-        <NavLink
-          to="SignUp"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
+        <NavLink variant="primary" onClick={handleShow} value="Sign up">
           SignUp
         </NavLink>
       )}
+      <Modal show={show} onHide={handleClose} animation={false} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>{buttonPressed}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {buttonPressed === "Login" ? (
+            <Login handleClose={handleClose} />
+          ) : (
+            <SignUp handleClose={handleClose} />
+          )}
+        </Modal.Body>
+      </Modal>
     </nav>
   );
 }

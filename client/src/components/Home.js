@@ -15,7 +15,11 @@ function Home() {
         and it is still muddy or you can see that you are leaving ruts please
         refrain from use.
       </h2>
-      <img style={{ width: "80%", marginLeft: "10%" }} src={IMG} />
+      <img
+        style={{ width: "80%", marginLeft: "10%" }}
+        src={IMG}
+        alt="Mountain bike at the top of a mountain"
+      />
     </div>
   );
 }

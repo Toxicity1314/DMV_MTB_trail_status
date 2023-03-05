@@ -5,24 +5,8 @@
 
 set :environment, "development"
 set :output, "log/cron.log"
-# every :day, at: ["04:00 AM", "01:00 PM"] do
-#     runner "FetchRainDataJob.perform"
-# end
+
 every 1.day, at: ['4:30 am', '2:00 pm'] do
     runner "FetchRainDataJob.perform_now"
 end
-# Example:
-#
-# set :output, "/path/to/my/cron_log.log"
-#
-# every 2.hours do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-#   rake "some:great:rake:task"
-# end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
-
 # Learn more: http://github.com/javan/whenever

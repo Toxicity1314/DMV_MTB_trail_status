@@ -5,11 +5,10 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ handleClose }) {
   const { setUser } = useContext(UserContext);
-  const navigate = useNavigate();
+
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
@@ -34,27 +33,26 @@ function Login() {
       if (res.ok) {
         res.json().then((user) => setUser(user.username));
         setErrors([]);
-
-        navigate("/TrailSystem/1");
+        handleClose();
       } else {
         res.json().then((err) => setErrors(err.errors));
       }
     });
   };
-  const errorHandler = (item) => {
-    let i = 0;
-    let list = errors.filter((error) => error.includes(item));
-    let last = [];
-    return list.map((item) => {
-      i++;
-      if (!last.includes(item)) {
-        last.push(item);
-        return <li key={i}>{item}</li>;
-      } else {
-        return null;
-      }
-    });
-  };
+  // const errorHandler = (item) => {
+  //   let i = 0;
+  //   let list = errors.filter((error) => error.includes(item));
+  //   let last = [];
+  //   return list.map((item) => {
+  //     i++;
+  //     if (!last.includes(item)) {
+  //       last.push(item);
+  //       return <li key={i}>{item}</li>;
+  //     } else {
+  //       return null;
+  //     }
+  //   });
+  // };
 
   return (
     <Container>
@@ -70,7 +68,7 @@ function Login() {
               onChange={(e) => handleChange(e)}
               value={formData.username}
             />
-            {validated && errorHandler("Username")}
+            {/* {validated && errorHandler("Username")} */}
           </Form.Group>
         </Row>
         <Row className="mb-3">
@@ -84,7 +82,8 @@ function Login() {
               onChange={(e) => handleChange(e)}
               value={formData.password}
             />
-            {validated && errorHandler("Password")}
+            {/* {validated && errorHandler("Password")} */}
+            <div>{errors}</div>
           </Form.Group>
         </Row>
         <Button type="submit">Submit form</Button>

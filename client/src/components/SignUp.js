@@ -5,11 +5,10 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+function SignUp({ handleClose }) {
   const { setUser } = useContext(UserContext);
-  const navigate = useNavigate();
+
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
@@ -38,7 +37,7 @@ function SignUp() {
       if (res.ok) {
         res.json().then((user) => setUser(user.username));
         setErrors([]);
-        navigate("/TrailSystem/1");
+        handleClose();
       } else {
         res.json().then((err) => setErrors(err.errors));
       }

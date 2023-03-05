@@ -38,13 +38,6 @@ t17 = Trail.create(name: "USGS Trail", trail_system_id: ts1.id)
 
 i1 = Issue.create(trail_id: t14.id, issue: "treedown")
 
-# response = HTTParty.get("http://api.weatherapi.com/v1/history.json?key=#{weather}&q=#{ts1.lat},#{ts1.long}&dt=#{time.year}/#{time.month}/#{time.day}")
-# response["forecast"]["forecastday"][0]["hour"]
-
-# response["forecast"]["forecastday"][0]["hour"].each do |i|
-#     puts i["time_epoch"].to_i
-# end
-
 ts2 =
   TrailSystem.create(
     name: "Motts Run Reservoir",
@@ -155,34 +148,17 @@ t64 = Trail.create(name: "South Branch Loop Alternate", trail_system_id: ts6.id)
 t65 = Trail.create(name: "Stinger Trail", trail_system_id: ts6.id)
 t66 = Trail.create(name: "Yard Sale", trail_system_id: ts6.id)
 TrailSystem.all.each do |trail_system|
-    #   time = Time.now
-#   day = time.day
-#   4.times do
-#     response =
-#       HTTParty.get(
-    #         "http://api.weatherapi.com/v1/history.json?key=#{weather}&q=#{trail_system.lat},#{trail_system.long}&dt=#{time.year}/#{time.month}/#{day}",
-    #       )
-    #     response["forecast"]["forecastday"][0]["hour"].each do |hour|
-    #       RainTotal.create(
-        #         trail_system_id: trail_system.id,
-        #         precipitation_last_hour: hour["precip_mm"],
-        #         hour: hour["time_epoch"],
-        #       )
-        #     end
-        #     day -= 1
-        #   end
-        
-        response = HTTParty.get("https://api.open-meteo.com/v1/forecast?latitude=#{trail_system.lat}&longitude=#{trail_system.long}&hourly=precipitation&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York&past_days=4")
-        i=0
-response["hourly"]["time"].each do |time|
+  response =
+    HTTParty.get(
+      "https://api.open-meteo.com/v1/forecast?latitude=#{trail_system.lat}&longitude=#{trail_system.long}&hourly=precipitation&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York&past_days=4",
+    )
+  i = 0
+  response["hourly"]["time"].each do |time|
     RainTotal.create(
-                trail_system_id: trail_system.id,
-                precipitation_last_hour: response["hourly"]["precipitation"][i],
-                hour: time
-              )
-            #   puts time
-            #   puts response["hourly"]["precipitation"][i]
-    i+=1
-end
-# puts response["hourly"]
+      trail_system_id: trail_system.id,
+      precipitation_last_hour: response["hourly"]["precipitation"][i],
+      hour: time,
+    )
+    i += 1
+  end
 end

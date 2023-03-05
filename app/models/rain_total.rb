@@ -13,7 +13,6 @@ class RainTotal < ApplicationRecord
       puts hour.precipitation_last_hour
       precip_total += hour.precipitation_last_hour
     end
-    # precip_total *= 0.03937008
     precip_total.round(3)
   end
 end

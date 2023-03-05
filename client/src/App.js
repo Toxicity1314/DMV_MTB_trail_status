@@ -15,8 +15,6 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/TrailSystem/:id" element={<TrailPage />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Login" element={<Login />} />
           <Route path="/Explore" element={<Explore />} />
           <Route path="/" element={<Home />} />
         </Routes>

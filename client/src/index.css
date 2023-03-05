@@ -14,3 +14,12 @@ code {
 .NavBar{
   background-color: rgb(73, 152, 230);
 } */
+
+.NavBar{
+  text-align: right;
+  padding-bottom: 2%;
+}
+.NavBarLink{
+  padding-right: 1%;
+  text-decoration: none;
+}

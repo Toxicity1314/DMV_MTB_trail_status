@@ -2,7 +2,7 @@ import React from "react";
 import IMG from "../IMG.jpg";
 function Home() {
   return (
-    <div className="NavBar">
+    <div>
       <h2>
         Welcome to the Virginia mtb trails weather app. This website allows you
         to easily look at recent rain totals for an area based on trail system

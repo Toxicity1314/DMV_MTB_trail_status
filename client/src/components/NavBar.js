@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import SignUp from "./SignUp";
 import Login from "./Login";
+import Nav from 'react-bootstrap/Nav'
+import ModalForm from "./ModalForm";
 
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
@@ -34,6 +36,7 @@ function NavBar() {
   return (
     <nav className="NavBar">
       <NavLink
+      className="NavBarLink"
         to="/"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
@@ -41,12 +44,14 @@ function NavBar() {
       </NavLink>
 
       <NavLink
+      className="NavBarLink"
         to="Explore"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         Explore
       </NavLink>
       <NavLink
+      className="NavBarLink"
         to="About"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
@@ -54,20 +59,21 @@ function NavBar() {
       </NavLink>
 
       {user ? (
-        <NavLink onClick={handleLogOut}>Logout</NavLink>
+        <NavLink className="NavBarLink" onClick={handleLogOut}>Logout</NavLink>
       ) : (
-        <NavLink variant="primary" onClick={handleShow} name="Login">
+        <NavLink className="NavBarLink" variant="primary" onClick={handleShow} name="Login">
           Login
         </NavLink>
       )}
       {user ? (
         `Welcome ${user}`
       ) : (
-        <NavLink variant="primary" onClick={handleShow} name="Sign up">
+        <NavLink className="NavBarLink" variant="primary" onClick={handleShow} name="Sign up">
           SignUp
         </NavLink>
       )}
-      <Modal show={show} onHide={handleClose} animation={false} centered>
+      {buttonPressed&& <ModalForm buttonPressed={buttonPressed} setButtonPressed={setButtonPressed}></ModalForm>}
+      {/* <Modal show={show} onHide={handleClose} animation={false} centered>
         <Modal.Header closeButton>
           <Modal.Title>{buttonPressed}</Modal.Title>
         </Modal.Header>
@@ -78,7 +84,7 @@ function NavBar() {
             <SignUp handleClose={handleClose} />
           )}
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </nav>
   );
 }

@@ -147,6 +147,7 @@ t63 = Trail.create(name: "South Branch Loop", trail_system_id: ts6.id)
 t64 = Trail.create(name: "South Branch Loop Alternate", trail_system_id: ts6.id)
 t65 = Trail.create(name: "Stinger Trail", trail_system_id: ts6.id)
 t66 = Trail.create(name: "Yard Sale", trail_system_id: ts6.id)
+epoch_time = Time.now.to_i
 TrailSystem.all.each do |trail_system|
   response =
     HTTParty.get(
@@ -154,11 +155,13 @@ TrailSystem.all.each do |trail_system|
     )
   i = 0
   response["hourly"]["time"].each do |time|
+    if time < epoch_time
     RainTotal.create(
       trail_system_id: trail_system.id,
       precipitation_last_hour: response["hourly"]["precipitation"][i],
       hour: time,
     )
     i += 1
+  end
   end
 end

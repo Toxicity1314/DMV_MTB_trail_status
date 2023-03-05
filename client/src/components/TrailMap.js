@@ -17,7 +17,7 @@ function TrailMap({ trail }) {
   }, []);
 
   return (
-    <div
+    <div style={{ width: "100%", marginLeft: "30%" }}
       id="trailForks2"
       className="TrailforksWidgetMap"
       data-w="800px"

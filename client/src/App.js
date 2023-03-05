@@ -3,8 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import TrailPage from "./components/TrailPage";
-import SignUp from "./components/SignUp";
-import Login from "./components/Login";
 import Explore from "./components/Explore";
 import { UserProvider } from "./context/user";
 

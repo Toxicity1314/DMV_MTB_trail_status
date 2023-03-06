@@ -11,7 +11,6 @@ function TrailPage() {
   const [trail, setTrail] = useState("");
   const { user } = useContext(UserContext);
   let { id } = useParams();
-  console.log(user);
   useEffect(() => {
     fetchHandler({ url: `/trail_systems/${id}`, set: setTrail });
   }, [id]);
@@ -23,7 +22,6 @@ function TrailPage() {
         let updatedissues = trail.issues.filter(
           (filterIssue) => filterIssue.id !== issue.id
         );
-        console.log(updatedissues);
         setTrail({ ...trail, issues: updatedissues });
       }
     });
@@ -41,6 +39,8 @@ function TrailPage() {
         );
       })
     : "";
+
+    console.log(trail)
 
   return (
     <div style={{ width: "80%", marginLeft: "10%" }}>
@@ -61,6 +61,10 @@ function TrailPage() {
       <h3
         style={{ textAlign: "center" }}
       >{`${trail.last_24}/${trail.last_48}/${trail.last_72} inches`}</h3>
+      <h3
+        style={{ textAlign: "center" }}
+      >{trail.get_last_updated}</h3>
+      
     </div>
   );
 }

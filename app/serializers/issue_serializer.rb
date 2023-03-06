@@ -1,4 +1,4 @@
 class IssueSerializer < ActiveModel::Serializer
-  attributes :id, :issue
+  attributes :id, :issue, :trail_id
   has_one :trail
 end

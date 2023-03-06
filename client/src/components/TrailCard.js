@@ -15,7 +15,7 @@ function TrailCard({ trail }) {
           alt="trail map"
         />
         <Card.Body>
-          {trail.issues.length > 0 ? <Card.Text>⚠️</Card.Text>:""}
+          {trail.issues.length > 0 ? <Card.Text>⚠️</Card.Text> : ""}
           <Card.Title>{trail.name}</Card.Title>
           <Card.Text>{trail.address}</Card.Text>
         </Card.Body>

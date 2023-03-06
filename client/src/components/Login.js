@@ -31,7 +31,7 @@ function Login({ handleClose }) {
       body: JSON.stringify(formData),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => setUser(user.username));
+        res.json().then((user) => setUser(user));
         setErrors([]);
         handleClose();
       } else {
@@ -39,20 +39,6 @@ function Login({ handleClose }) {
       }
     });
   };
-  // const errorHandler = (item) => {
-  //   let i = 0;
-  //   let list = errors.filter((error) => error.includes(item));
-  //   let last = [];
-  //   return list.map((item) => {
-  //     i++;
-  //     if (!last.includes(item)) {
-  //       last.push(item);
-  //       return <li key={i}>{item}</li>;
-  //     } else {
-  //       return null;
-  //     }
-  //   });
-  // };
 
   return (
     <Container>

@@ -2,6 +2,7 @@ class TrailSystem < ApplicationRecord
   has_many :trails
   has_many :issues, through: :trails
   has_many :rain_totals
+  has_many :comments
 
   def last_24
     RainTotal.precip id, 86_400

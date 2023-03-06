@@ -5,12 +5,10 @@ import ModalForm from "./ModalForm";
 
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
-  const [show, setShow] = useState(false);
   const [buttonPressed, setButtonPressed] = useState(false);
 
   const handleShow = (e) => {
     setButtonPressed(e.target.name);
-    setShow(true);
   };
 
   let activeStyle = {

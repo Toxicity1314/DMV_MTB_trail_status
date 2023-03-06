@@ -5,6 +5,8 @@ import TrailMap from "./TrailMap";
 import Button from "react-bootstrap/Button";
 import ModalForm from "./ModalForm";
 import { UserContext } from "../context/user";
+import AddComment from "./AddComment";
+import CommentCard from "./CommentCard";
 
 function TrailPage() {
   const [buttonPressed, setButtonPressed] = useState(false);
@@ -39,8 +41,9 @@ function TrailPage() {
         );
       })
     : "";
-
-    console.log(trail)
+    let comments = trail
+    ? trail.comments.map((comment) => <CommentCard key={comment.id} comment={comment}/>)
+    : "";
 
   return (
     <div style={{ width: "80%", marginLeft: "10%" }}>
@@ -56,6 +59,7 @@ function TrailPage() {
           setTrail={setTrail}
         ></ModalForm>
       )}
+      <h1 style={{textAlign: "center"}}>{trail.name}</h1>
       {trail ? <TrailMap trail={trail} /> : ""}
       <h3 style={{ textAlign: "center" }}>Rainfall last 24/48/72 hours</h3>
       <h3
@@ -64,6 +68,8 @@ function TrailPage() {
       <h3
         style={{ textAlign: "center" }}
       >{trail.get_last_updated}</h3>
+      {user.username && <AddComment trail={trail} setTrail={setTrail}/>}
+      {comments}
       
     </div>
   );

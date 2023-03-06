@@ -6,12 +6,12 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-function ProblemForm({ handleClose, trail }) {
+function ProblemForm({ handleClose, trail, setTrail }) {
   const { setUser } = useContext(UserContext);
 
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
-    trail: "",
+    trail_id: "",
     issue: "",
     other: "",
     description: "",
@@ -27,13 +27,21 @@ function ProblemForm({ handleClose, trail }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     setValidated(true);
-    fetch(`/users`, {
+    let dataToSubmit = formData;
+    dataToSubmit.trail_id = formData.trail_id;
+    if (dataToSubmit.issue === "other") {
+      dataToSubmit.issue = dataToSubmit.other;
+    }
+    fetch(`/issues`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(dataToSubmit),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => setUser(user.username));
+        res.json().then((newIssue) => {
+          console.log(newIssue.issue);
+          setTrail({ ...trail, issues: [...trail.issues, newIssue] });
+        });
         setErrors([]);
         handleClose();
       } else {
@@ -44,7 +52,7 @@ function ProblemForm({ handleClose, trail }) {
 
   let trailList = trail.trails.map((trail) => {
     return (
-      <option key={trail.id} value={trail.name}>
+      <option key={trail.id} value={trail.id}>
         {trail.name}
       </option>
     );
@@ -72,7 +80,7 @@ function ProblemForm({ handleClose, trail }) {
           <Form.Select
             onChange={handleChange}
             value={formData.trail}
-            name="trail"
+            name="trail_id"
           >
             <option>Please select a Trail</option>
             {trailList}
@@ -116,7 +124,7 @@ function ProblemForm({ handleClose, trail }) {
             onChange={(e) => handleChange(e)}
             value={formData.username}
           />
-        </Row >
+        </Row>
         <Row className="mb-5">
           <Button type="submit">Submit form</Button>
         </Row>

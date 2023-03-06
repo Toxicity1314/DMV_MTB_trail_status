@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-time = Time.now
-weather = ENV["WEATHER_API_KEY"]
 ts1 =
   TrailSystem.create(
     name: "Fredericksburg Quarry",
@@ -156,12 +154,12 @@ TrailSystem.all.each do |trail_system|
   i = 0
   response["hourly"]["time"].each do |time|
     if time < epoch_time
-    RainTotal.create(
-      trail_system_id: trail_system.id,
-      precipitation_last_hour: response["hourly"]["precipitation"][i],
-      hour: time,
-    )
-    i += 1
-  end
+      RainTotal.create(
+        trail_system_id: trail_system.id,
+        precipitation_last_hour: response["hourly"]["precipitation"][i],
+        hour: time,
+      )
+      i += 1
+    end
   end
 end

@@ -35,7 +35,7 @@ function SignUp({ handleClose }) {
       body: JSON.stringify(formData),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => setUser(user.username));
+        res.json().then((user) => setUser(user));
         setErrors([]);
         handleClose();
       } else {
@@ -63,79 +63,76 @@ function SignUp({ handleClose }) {
     <Container>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="validationCustom01">
-            <Form.Label>First name</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              name="first_name"
-              placeholder="First name"
-              onChange={(e) => handleChange(e)}
-              value={formData.first_name}
-            />
-            {validated && errorHandler("First")}
-          </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationCustom02">
-            <Form.Label>Last name</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              name="last_name"
-              placeholder="Last name"
-              onChange={(e) => handleChange(e)}
-              value={formData.last_name}
-            />
-            {validated && errorHandler("Last")}
-          </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-            <Form.Label>username</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              name="username"
-              placeholder="username"
-              onChange={(e) => handleChange(e)}
-              value={formData.username}
-            />
-            {validated && errorHandler("Username")}
-          </Form.Group>
+          <Form.Label>First name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            name="first_name"
+            placeholder="First name"
+            onChange={(e) => handleChange(e)}
+            value={formData.first_name}
+          />
+          {validated && errorHandler("First")}
         </Row>
         <Row className="mb-3">
-          <Form.Group as={Col} md="6" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              required
-              type="email"
-              name="email"
-              placeholder="email"
-              onChange={(e) => handleChange(e)}
-              value={formData.email}
-            />
-            {validated && errorHandler("Email")}
-          </Form.Group>
-          <Form.Group as={Col} md="3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              required
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={(e) => handleChange(e)}
-              value={formData.password}
-            />
-            {validated && errorHandler("Password")}
-          </Form.Group>
-          <Form.Group as={Col} md="3" controlId="formBasicPassword">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              required
-              type="password"
-              name="password_confirmation"
-              placeholder="Confirm password"
-              onChange={(e) => handleChange(e)}
-              value={formData.password_confirmation}
-            />
-          </Form.Group>
+          <Form.Label>Last name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            name="last_name"
+            placeholder="Last name"
+            onChange={(e) => handleChange(e)}
+            value={formData.last_name}
+          />
+          {validated && errorHandler("Last")}
+        </Row>
+        <Row className="mb-3">
+          <Form.Label>username</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            name="username"
+            placeholder="username"
+            onChange={(e) => handleChange(e)}
+            value={formData.username}
+          />
+          {validated && errorHandler("Username")}
+        </Row>
+
+        <Row className="mb-3">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            required
+            type="email"
+            name="email"
+            placeholder="email"
+            onChange={(e) => handleChange(e)}
+            value={formData.email}
+          />
+          {validated && errorHandler("Email")}
+        </Row>
+        <Row className="mb-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            required
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={(e) => handleChange(e)}
+            value={formData.password}
+          />
+          {validated && errorHandler("Password")}
+        </Row>
+        <Row className="mb-3">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control
+            required
+            type="password"
+            name="password_confirmation"
+            placeholder="Confirm password"
+            onChange={(e) => handleChange(e)}
+            value={formData.password_confirmation}
+          />
         </Row>
         <Button type="submit">Submit form</Button>
       </Form>

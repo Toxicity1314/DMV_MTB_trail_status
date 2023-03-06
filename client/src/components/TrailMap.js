@@ -18,7 +18,7 @@ function TrailMap({ trail }) {
 
   return (
     <div
-      style={{ width: "100%", marginLeft: "30%" }}
+      style={{ textAlign: "center"}}
       id="trailForks2"
       className="TrailforksWidgetMap"
       data-w="800px"

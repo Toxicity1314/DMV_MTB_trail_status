@@ -1,14 +1,10 @@
-import React, { useContext, useState } from "react";
-import { UserContext } from "../context/user";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 function ProblemForm({ handleClose, trail, setTrail }) {
-  const { setUser } = useContext(UserContext);
-
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     trail_id: "",
@@ -28,6 +24,9 @@ function ProblemForm({ handleClose, trail, setTrail }) {
     event.preventDefault();
     setValidated(true);
     let dataToSubmit = formData;
+    if(formData.issue === "other"){
+      dataToSubmit.issue = formData.other
+    }
     dataToSubmit.trail_id = formData.trail_id;
     if (dataToSubmit.issue === "other") {
       dataToSubmit.issue = dataToSubmit.other;
@@ -39,7 +38,6 @@ function ProblemForm({ handleClose, trail, setTrail }) {
     }).then((res) => {
       if (res.ok) {
         res.json().then((newIssue) => {
-          console.log(newIssue.issue);
           setTrail({ ...trail, issues: [...trail.issues, newIssue] });
         });
         setErrors([]);
@@ -57,21 +55,6 @@ function ProblemForm({ handleClose, trail, setTrail }) {
       </option>
     );
   });
-  const errorHandler = (item) => {
-    let i = 0;
-    let list = errors.filter((error) => error.includes(item));
-    let last = [];
-    return list.map((item) => {
-      i++;
-      if (!last.includes(item)) {
-        last.push(item);
-        return <li key={i}>{item}</li>;
-      } else {
-        return null;
-      }
-    });
-  };
-  console.log(formData);
   return (
     <Container>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -124,6 +107,7 @@ function ProblemForm({ handleClose, trail, setTrail }) {
             onChange={(e) => handleChange(e)}
             value={formData.username}
           />
+          {errors}
         </Row>
         <Row className="mb-5">
           <Button type="submit">Submit form</Button>

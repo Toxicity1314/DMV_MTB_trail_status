@@ -6,7 +6,7 @@
 set :environment, "development"
 set :output, "log/cron.log"
 
-every 1.day, at: ['9:05 am', '2:00 pm'] do
+every 1.day, at: ['9:36 am', '2:00 pm'] do
     runner "FetchRainDataJob.perform_now"
 end
 # Learn more: http://github.com/javan/whenever

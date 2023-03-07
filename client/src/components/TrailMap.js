@@ -18,11 +18,9 @@ function TrailMap({ trail }) {
 
   return (
     <div
-      style={{ textAlign: "center"}}
-      id="trailForks2"
-      className="TrailforksWidgetMap"
-      data-w="800px"
-      data-h="400px"
+      className="TrailforksWidgetMap trailMap"
+      data-w="100%"
+      data-h="500"
       data-rid={trail.trail_forks_id}
       data-activitytype="1"
       data-maptype="trailforks"

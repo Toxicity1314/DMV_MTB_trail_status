@@ -23,3 +23,31 @@ code {
   padding-right: 1%;
   text-decoration: none;
 }
+
+.trailPageCenter{
+text-align: center;
+}
+.trailPageSetup{
+  padding: 5%;
+}
+.map{
+  height: 500px;
+}
+
+.trailMap{
+  margin: 0 auto;
+}
+.commentOutline{
+  width: 50%;
+  border-radius: 25px;
+}
+.commentText{
+  margin-left: 20px;
+  width: 90%
+}
+.commentUser{
+  margin-left: 20px;
+}
+.commentSetup{
+  margin-left: 2%;
+}

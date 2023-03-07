@@ -7,6 +7,7 @@ import ModalForm from "./ModalForm";
 import { UserContext } from "../context/user";
 import AddComment from "./AddComment";
 import CommentCard from "./CommentCard";
+import Stack from "react-bootstrap/Stack";
 
 function TrailPage() {
   const [buttonPressed, setButtonPressed] = useState(false);
@@ -16,15 +17,15 @@ function TrailPage() {
   useEffect(() => {
     fetchHandler({ url: `/trail_systems/${id}`, set: setTrail });
   }, [id]);
-  const handleClick = (issue) => {
-    fetch(`/issues/${issue.id}`, {
+  const handleClick = (e, item) => {
+    fetch(`/${e.target.name}/${item.id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
-        let updatedissues = trail.issues.filter(
-          (filterIssue) => filterIssue.id !== issue.id
+        let updatedItem = trail[e.target.name].filter(
+          (filterItem) => filterItem.id !== item.id
         );
-        setTrail({ ...trail, issues: updatedissues });
+        setTrail({ ...trail, [e.target.name]: updatedItem });
       }
     });
   };
@@ -36,17 +37,37 @@ function TrailPage() {
         return (
           <li key={issue.id}>
             {issue.issue} on {trailName[0].name}
-            {user.admin && <Button onClick={() => handleClick(issue)}></Button>}
+            {user.admin && (
+              <Button
+                name="issues"
+                size="sm"
+                variant="danger"
+                onClick={(e) => handleClick(e, issue)}
+              >
+                x
+              </Button>
+            )}
           </li>
         );
       })
     : "";
-    let comments = trail
-    ? trail.comments.map((comment) => <CommentCard key={comment.id} comment={comment}/>)
+
+  let comments = trail
+    ? trail.comments.map((comment) => (
+        <CommentCard
+          key={comment.id}
+          comment={comment}
+          handleClick={handleClick}
+          trail={trail}
+          setTrail={setTrail}
+        />
+      ))
     : "";
 
   return (
-    <div style={{ width: "80%", marginLeft: "10%" }}>
+    <div className="trailPageSetup">
+      <h1 className="trailPageCenter">{trail.name}</h1>
+      {issues.length > 0 ? <h3>Issues reported</h3> : ""}
       <ul>{issues}</ul>
       <Button onClick={() => setButtonPressed("Report an issue")}>
         Report an issue
@@ -59,18 +80,13 @@ function TrailPage() {
           setTrail={setTrail}
         ></ModalForm>
       )}
-      <h1 style={{textAlign: "center"}}>{trail.name}</h1>
-      {trail ? <TrailMap trail={trail} /> : ""}
-      <h3 style={{ textAlign: "center" }}>Rainfall last 24/48/72 hours</h3>
-      <h3
-        style={{ textAlign: "center" }}
-      >{`${trail.last_24}/${trail.last_48}/${trail.last_72} inches`}</h3>
-      <h3
-        style={{ textAlign: "center" }}
-      >{trail.get_last_updated}</h3>
-      {user.username && <AddComment trail={trail} setTrail={setTrail}/>}
-      {comments}
-      
+      <div className="map">{trail ? <TrailMap trail={trail} /> : ""}</div>
+      <h3 className="trailPageCenter">Rainfall last 24/48/72 hours</h3>
+      <h3 className="trailPageCenter">{`${trail.last_24}/${trail.last_48}/${trail.last_72} inches`}</h3>
+      <h3 className="trailPageCenter">{trail.get_last_updated}</h3>
+
+      {user.username && <AddComment trail={trail} setTrail={setTrail} />}
+      <Stack gap={3}>{comments}</Stack>
     </div>
   );
 }

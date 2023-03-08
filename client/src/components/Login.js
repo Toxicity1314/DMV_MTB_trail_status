@@ -8,8 +8,6 @@ import Container from "react-bootstrap/Container";
 
 function Login({ handleClose }) {
   const { setUser } = useContext(UserContext);
-
-  const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -24,7 +22,7 @@ function Login({ handleClose }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setValidated(true);
+
     fetch(`/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -42,33 +40,29 @@ function Login({ handleClose }) {
 
   return (
     <Container>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
             <Form.Label>username</Form.Label>
             <Form.Control
-              required
               type="text"
               name="username"
               placeholder="username"
               onChange={(e) => handleChange(e)}
               value={formData.username}
             />
-            {/* {validated && errorHandler("Username")} */}
           </Form.Group>
         </Row>
         <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              required
               type="password"
               name="password"
               placeholder="Password"
               onChange={(e) => handleChange(e)}
               value={formData.password}
             />
-            {/* {validated && errorHandler("Password")} */}
             <div>{errors}</div>
           </Form.Group>
         </Row>

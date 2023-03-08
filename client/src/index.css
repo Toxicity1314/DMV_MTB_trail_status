@@ -1,4 +1,6 @@
-/* body {
+.App {
+  background-color: #113C1A;
+  color: white;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -6,17 +8,40 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html{
+  background-color: #113C1A;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.NavBar{
-  background-color: rgb(73, 152, 230);
-} */
 
+.picture_wrap{
+  position: absolute;
+  top: 10;
+ 
+
+  /* flex: 1 1 auto; */
+
+}
+.text{
+position: absolute;
+top: 0;
+margin: 5%;
+visibility: hidden;
+opacity: 0;
+transition: opacity .2s, visibility .2s;
+color: black;
+}
+.picture_wrap:hover .text{
+  visibility: visible;
+  opacity: 1;
+
+}
 .NavBar{
-  text-align: right;
+  text-align: center;
+  color:white;
   padding-bottom: 2%;
 }
 .NavBarLink{
@@ -24,30 +49,3 @@ code {
   text-decoration: none;
 }
 
-.trailPageCenter{
-text-align: center;
-}
-.trailPageSetup{
-  padding: 5%;
-}
-.map{
-  height: 500px;
-}
-
-.trailMap{
-  margin: 0 auto;
-}
-.commentOutline{
-  width: 50%;
-  border-radius: 25px;
-}
-.commentText{
-  margin-left: 20px;
-  width: 90%
-}
-.commentUser{
-  margin-left: 20px;
-}
-.commentSetup{
-  margin-left: 2%;
-}

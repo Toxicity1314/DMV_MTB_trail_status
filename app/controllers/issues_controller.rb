@@ -6,8 +6,15 @@ class IssuesController < ApplicationController
   end
 
   def create
-    issue = Issue.create!(issue_params)
-    render json: issue
+    issue = Issue.create(issue_params)
+    if issue.valid?
+      render json: issue, status: :created
+    else
+      render json: {
+               errors: issue.errors.full_messages,
+             },
+             status: :unprocessable_entity
+    end
   end
 
   def destroy

@@ -14,6 +14,9 @@ function NavBar() {
   let activeStyle = {
     color: "red",
   };
+  let inactiveSyle = {
+    color: "white",
+  };
 
   const handleLogOut = () => {
     setUser({ username: false, admin: false });
@@ -27,7 +30,7 @@ function NavBar() {
       <NavLink
         className="NavBarLink"
         to="/"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : inactiveSyle)}
       >
         Home
       </NavLink>
@@ -35,24 +38,29 @@ function NavBar() {
       <NavLink
         className="NavBarLink"
         to="Explore"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : inactiveSyle)}
       >
-        Explore
+        Trails
       </NavLink>
       <NavLink
         className="NavBarLink"
         to="About"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : inactiveSyle)}
       >
         About
       </NavLink>
 
       {user.username ? (
-        <NavLink className="NavBarLink" onClick={handleLogOut}>
+        <NavLink
+          style={inactiveSyle}
+          className="NavBarLink"
+          onClick={handleLogOut}
+        >
           Logout
         </NavLink>
       ) : (
         <NavLink
+          style={inactiveSyle}
           className="NavBarLink"
           variant="primary"
           onClick={handleShow}
@@ -65,6 +73,7 @@ function NavBar() {
         `Welcome ${user.username}`
       ) : (
         <NavLink
+          style={inactiveSyle}
           className="NavBarLink"
           variant="primary"
           onClick={handleShow}

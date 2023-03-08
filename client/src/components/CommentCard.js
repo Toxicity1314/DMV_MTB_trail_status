@@ -8,11 +8,12 @@ function CommentCard({ comment, handleClick, trail, setTrail }) {
   const [edit, setEdit] = useState(false);
   if (edit === false) {
     return (
-      <div className="border commentOutline">
-        <h6 className="commentUser">{comment.user.username}</h6>
-        <div className="commentText">{comment.comment}</div>
+      <div className="border comment Outline">
+        <h6 className="comment User">{comment.user.username}</h6>
+        <div className="comment Text">{comment.comment}</div>
         {user.id === comment.user_id ? (
           <Button
+            className="deleteCommentButton"
             name="comments"
             size="sm"
             variant="danger"
@@ -22,6 +23,7 @@ function CommentCard({ comment, handleClick, trail, setTrail }) {
           </Button>
         ) : user.admin ? (
           <Button
+            className="deleteCommentButton"
             name="comments"
             size="sm"
             variant="danger"
@@ -33,7 +35,12 @@ function CommentCard({ comment, handleClick, trail, setTrail }) {
           ""
         )}
         {user.id === comment.user_id ? (
-          <Button size="sm" name="edit" onClick={() => setEdit(true)}>
+          <Button
+            className="editButton"
+            size="sm"
+            name="edit"
+            onClick={() => setEdit(true)}
+          >
             Edit
           </Button>
         ) : (

@@ -8,6 +8,9 @@ import { UserContext } from "../context/user";
 import AddComment from "./AddComment";
 import CommentCard from "./CommentCard";
 import Stack from "react-bootstrap/Stack";
+import { TrailPageStyles } from "./styles";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function TrailPage() {
   const [buttonPressed, setButtonPressed] = useState(false);
@@ -65,29 +68,43 @@ function TrailPage() {
     : "";
 
   return (
-    <div className="trailPageSetup">
-      <h1 className="trailPageCenter">{trail.name}</h1>
-      {issues.length > 0 ? <h3>Issues reported</h3> : ""}
-      <ul>{issues}</ul>
-      <Button onClick={() => setButtonPressed("Report an issue")}>
-        Report an issue
-      </Button>
-      {buttonPressed && (
-        <ModalForm
-          buttonPressed={buttonPressed}
-          setButtonPressed={setButtonPressed}
-          trail={trail}
-          setTrail={setTrail}
-        ></ModalForm>
-      )}
-      <div className="map">{trail ? <TrailMap trail={trail} /> : ""}</div>
-      <h3 className="trailPageCenter">Rainfall last 24/48/72 hours</h3>
-      <h3 className="trailPageCenter">{`${trail.last_24}/${trail.last_48}/${trail.last_72} inches`}</h3>
-      <h3 className="trailPageCenter">{trail.get_last_updated}</h3>
-
-      {user.username && <AddComment trail={trail} setTrail={setTrail} />}
-      <Stack gap={3}>{comments}</Stack>
-    </div>
+    <TrailPageStyles>
+      <div className="trailPageSetup">
+        <h1 className="trailPageCenter header">{trail.name}</h1>
+        <h3 className="trailPageCenter">Rainfall last 24/48/72 hours</h3>
+        <h3 className="trailPageCenter">{`${trail.last_24}/${trail.last_48}/${trail.last_72} inches`}</h3>
+        <h3 className="trailPageCenter">{trail.get_last_updated}</h3>
+        <div className="map">{trail ? <TrailMap trail={trail} /> : ""}</div>
+        <Row>
+          <Col>
+            {issues.length > 0 ? <h3>Issues reported</h3> : ""}
+            <ul>{issues}</ul>
+            <Button onClick={() => setButtonPressed("Report an issue")}>
+              Report an issue
+            </Button>
+            {buttonPressed && (
+              <ModalForm
+                buttonPressed={buttonPressed}
+                setButtonPressed={setButtonPressed}
+                trail={trail}
+                setTrail={setTrail}
+              ></ModalForm>
+            )}
+          </Col>
+          <Col>
+            {user.username && (
+              <div>
+                <AddComment trail={trail} setTrail={setTrail} />
+              </div>
+            )}
+            <h3>Comments</h3>
+            <div className="box">
+              <Stack gap={3}>{comments}</Stack>
+            </div>
+          </Col>
+        </Row>
+      </div>
+    </TrailPageStyles>
   );
 }
 

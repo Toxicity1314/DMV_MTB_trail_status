@@ -61,7 +61,7 @@ ts3 =
     long: -77.3531,
     address: "Locust Shade Triangle, VA 22172",
     trail_map:
-      "https://scontent.fric1-1.fna.fbcdn.net/v/t39.30808-6/329160081_1375495043218800_3114874958501087442_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=kJYsl_VGFAkAX_2k7_p&_nc_ht=scontent.fric1-1.fna&oh=00_AfClI3Hk04h_9xp349wH3QQayFeAMdI9z7YgWgm58FVdAQ&oe=64026A03",
+      "https://cdn.shopify.com/s/files/1/0022/0269/7837/products/mockup-a2884992_1024x1024.jpg?v=1571015720",
     trail_forks_id: "18974",
   )
 
@@ -85,7 +85,7 @@ ts4 =
     long: -77.3317,
     address: "1400 Lake Fairfax Dr, Reston, VA 20190",
     trail_map:
-      "https://scontent.fric1-1.fna.fbcdn.net/v/t39.30808-6/255906924_1734507286735073_4784584277968118013_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=4ifnO_C0Rm8AX_wkOiB&_nc_ht=scontent.fric1-1.fna&oh=00_AfAjOAVGKiMlOzwVNGrLWE0u6vdq9lYiBEsOy7OuDNqbsg&oe=64037625",
+      "https://images.singletracks.com/blog/wp-content/uploads/2009/10/Lake-Fairfax-375x250.png",
     trail_forks_id: "9033",
   )
 
@@ -112,7 +112,7 @@ ts5 =
     long: -77.2457,
     address: "Laurel Hill Mountain Bike Trails, Lorton, VA",
     trail_map:
-      "http://lh6.ggpht.com/_mkxTK_Bq4tg/STBTBLO5ovI/AAAAAAAAAik/Z1JLUkOVDCE/s720/LaurelHillMap[1].jpg",
+      "http://1.bp.blogspot.com/_g0YuboCNUU8/S-hGmTiVngI/AAAAAAAAbas/l3ITh1NEojk/s1600/LaurelHillEquestTrails.gif",
     trail_forks_id: "15985",
   )
 
@@ -163,3 +163,5 @@ TrailSystem.all.each do |trail_system|
     end
   end
 end
+User.create(username: "Admin", first_name: "Admin", last_name: "Admin", email: "Admin@Admin.com", password: "Admin1314", admin: true)
+User.create(username: "Toxicity1314", first_name: "Sean", last_name: "Welsh", email: "Sean@Welsh.com", password: "Hatebreed1314", admin: false)

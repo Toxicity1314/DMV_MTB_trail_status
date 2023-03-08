@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 function ProblemForm({ handleClose, trail, setTrail }) {
-  const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     trail_id: "",
     issue: "",
@@ -22,10 +21,10 @@ function ProblemForm({ handleClose, trail, setTrail }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setValidated(true);
+
     let dataToSubmit = formData;
-    if(formData.issue === "other"){
-      dataToSubmit.issue = formData.other
+    if (formData.issue === "other") {
+      dataToSubmit.issue = formData.other;
     }
     dataToSubmit.trail_id = formData.trail_id;
     if (dataToSubmit.issue === "other") {
@@ -47,6 +46,20 @@ function ProblemForm({ handleClose, trail, setTrail }) {
       }
     });
   };
+  const errorHandler = (item) => {
+    let i = 0;
+    let list = errors.filter((error) => error.includes(item));
+    let last = [];
+    return list.map((item) => {
+      i++;
+      if (!last.includes(item)) {
+        last.push(item);
+        return <li key={i}>{item}</li>;
+      } else {
+        return null;
+      }
+    });
+  };
 
   let trailList = trail.trails.map((trail) => {
     return (
@@ -57,7 +70,7 @@ function ProblemForm({ handleClose, trail, setTrail }) {
   });
   return (
     <Container>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Row className="mb-5">
           <Form.Label>Trail with an issue</Form.Label>
           <Form.Select
@@ -68,6 +81,7 @@ function ProblemForm({ handleClose, trail, setTrail }) {
             <option>Please select a Trail</option>
             {trailList}
           </Form.Select>
+          {errorHandler("Trail")}
         </Row>
         <Row className="mb-5">
           <Form.Label>Issue on the trail</Form.Label>
@@ -96,8 +110,9 @@ function ProblemForm({ handleClose, trail, setTrail }) {
               ></Form.Control>
             </Form.Group>
           )}
+          {errorHandler("Issue")}
         </Row>
-        <Row className="mb-5">
+        {/* <Row className="mb-5">
           <Form.Label>description</Form.Label>
           <Form.Control
             as="textarea"
@@ -107,8 +122,7 @@ function ProblemForm({ handleClose, trail, setTrail }) {
             onChange={(e) => handleChange(e)}
             value={formData.username}
           />
-          {errors}
-        </Row>
+        </Row> */}
         <Row className="mb-5">
           <Button type="submit">Submit form</Button>
         </Row>

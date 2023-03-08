@@ -1,25 +1,29 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Stack from "react-bootstrap/Stack";
+import Button from "react-bootstrap/Button";
+import { TrailCardStyle } from "./styles";
 
 function TrailCard({ trail }) {
   return (
-    <Card
-      style={{ width: "80%" }}
-      onClick={() => window.location.assign(`/TrailSystem/${trail.id}`)}
-    >
-      <Stack direction="horizontal" gap={1}>
-        <Card.Img
-          style={{ width: "25%" }}
-          src={trail.trail_map}
-          alt="trail map"
-        />
-        <Card.Body>
-          {trail.issues.length > 0 ? <Card.Text>⚠️</Card.Text> : ""}
-          <Card.Title>{trail.name}</Card.Title>
-          <Card.Text>{trail.address}</Card.Text>
+    <Card style={{ height: "100%" }}>
+      <Card.Img variant="top" src={trail.trail_map} alt="trail map" />
+      <TrailCardStyle>
+        <Card.Body className="cardBody">
+          {trail.issues.length > 0 ? (
+            <Card.Text className="cardBody">⚠️</Card.Text>
+          ) : (
+            ""
+          )}
+          <Card.Title className="cardBody">{trail.name}</Card.Title>
+          <Card.Text className="cardBody">{trail.address}</Card.Text>
+          <Button
+            size="sm"
+            onClick={() => window.location.assign(`/TrailSystem/${trail.id}`)}
+          >
+            Checkout Trail Information
+          </Button>
         </Card.Body>
-      </Stack>
+      </TrailCardStyle>
     </Card>
   );
 }

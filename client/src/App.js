@@ -10,6 +10,8 @@ function App() {
   return (
     <div className="App">
       <UserProvider>
+        {console.log(window.location.href)}
+        <h1 style={{ textAlign: "center" }}>Virginia MTB Rain Data</h1>
         <NavBar />
         <Routes>
           <Route path="/TrailSystem/:id" element={<TrailPage />} />

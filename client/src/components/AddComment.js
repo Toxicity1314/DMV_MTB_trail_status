@@ -55,9 +55,9 @@ function AddComment({ trail, setTrail, editComment, setEdit, edit, id }) {
     });
   };
   return (
-    <Form onSubmit={handleSubmit} className="commentOutline">
+    <Form onSubmit={handleSubmit} className="Outline">
       <Row className="mb-5">
-        <Form.Label>comment</Form.Label>
+        <h4>Add Commnet</h4>
         <Form.Control
           as="textarea"
           type="text"
@@ -69,7 +69,9 @@ function AddComment({ trail, setTrail, editComment, setEdit, edit, id }) {
         {errors}
       </Row>
       <Row className="mb-5">
-        <Button type="submit">Submit form</Button>
+        <Button size="sm" type="submit">
+          Submit form
+        </Button>
         {edit && <Button onClick={() => setEdit(false)}>cancel edit</Button>}
       </Row>
     </Form>

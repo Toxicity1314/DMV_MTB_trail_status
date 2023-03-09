@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 function About() {
   return (
     <div className="about">
-      <h1 className="centerPlease">Welcome</h1>
+      <h1 className="welcome centerPlease">Welcome</h1>
       <div>
         <p>
           Hello my name is Sean, and I am the creator of Virginia MTB Rain Data
@@ -52,7 +52,11 @@ function About() {
         <p>
           Thank you for visiting my website, and I hope it helps you plan your
           next ride! Please feel free to send any feedback to
-          s.welsh1314@gmail.com and check out my <a target="_blank" href="https://www.linkedin.com/in/sean-welsh"> linkedin</a>
+          s.welsh1314@gmail.com and check out my{" "}
+          <a target="_blank" href="https://www.linkedin.com/in/sean-welsh">
+            {" "}
+            linkedin
+          </a>
         </p>
       </div>
     </div>

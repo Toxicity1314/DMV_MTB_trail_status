@@ -20,11 +20,8 @@ code {
 .picture_wrap{
   position: absolute;
   top: 10;
- 
-
-  /* flex: 1 1 auto; */
-
 }
+
 .text{
 position: absolute;
 top: 0;
@@ -61,7 +58,6 @@ color: black;
 .imageSetup {
   vertical-align: top;
   display: inline-block;
-  /* text-align: center; */
   margin-bottom: 2%;
 
 }
@@ -72,4 +68,9 @@ color: black;
 .caption {
   display: block;
   text-align: center;
+}
+.welcome{
+  background-color: #4067db;
+  margin-bottom: 2%;
+
 }

@@ -11,14 +11,21 @@ import Stack from "react-bootstrap/Stack";
 import { TrailPageStyles } from "./styles";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Forcast from "./Forcast";
 
 function TrailPage() {
   const [buttonPressed, setButtonPressed] = useState(false);
+
   const [trail, setTrail] = useState("");
   const { user } = useContext(UserContext);
   let { id } = useParams();
+  console.log(trail.lat);
   useEffect(() => {
-    fetchHandler({ url: `/trail_systems/${id}`, set: setTrail });
+    fetch(`/trail_systems/${id}`)
+      .then((res) => res.json())
+      .then((trail) => {
+        setTrail(trail);
+      });
   }, [id]);
   const handleClick = (e, item) => {
     fetch(`/${e.target.name}/${item.id}`, {
@@ -74,6 +81,7 @@ function TrailPage() {
         <h3 className="trailPageCenter">Rainfall last 24/48/72 hours</h3>
         <h3 className="trailPageCenter">{`${trail.last_24}/${trail.last_48}/${trail.last_72} inches`}</h3>
         <h3 className="trailPageCenter">{trail.get_last_updated}</h3>
+        {trail && <Forcast trail={trail} />}
         <div className="map">{trail ? <TrailMap trail={trail} /> : ""}</div>
         <Row>
           <Col>

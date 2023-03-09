@@ -16,8 +16,8 @@ function TrailSystemList({ trailSystems }) {
   //useEffect handles updating the trails to display and pagination based off of changes
   //to the sort and search functions
   useEffect(() => {
-    let start=(active-1)*4
-    let end =start +4
+    let start = (active - 1) * 4;
+    let end = start + 4;
     let filteredTrails = trailSystems.filter((trail) => {
       return trail.name.toLowerCase().includes(formData.search.toLowerCase());
     });
@@ -90,8 +90,8 @@ function TrailSystemList({ trailSystems }) {
         }
         return 0;
       });
-    }else if (e.target.name ==="search"){
-      setActive(1)
+    } else if (e.target.name === "search") {
+      setActive(1);
     }
     setTrailsToDisplay(
       trailSystems.slice((active - 1) * 4, (active - 1) * 4 + 4)
@@ -100,7 +100,7 @@ function TrailSystemList({ trailSystems }) {
 
   return (
     <div>
-      <Container style={{paddingBottom:"2%"}}>
+      <Container style={{ paddingBottom: "2%" }}>
         <Form>
           <Row>
             <Col>

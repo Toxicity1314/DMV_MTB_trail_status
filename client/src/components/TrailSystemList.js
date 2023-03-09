@@ -90,6 +90,8 @@ function TrailSystemList({ trailSystems }) {
         }
         return 0;
       });
+    }else if (e.target.name ==="search"){
+      setActive(1)
     }
     setTrailsToDisplay(
       trailSystems.slice((active - 1) * 4, (active - 1) * 4 + 4)

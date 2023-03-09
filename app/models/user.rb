@@ -14,6 +14,4 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8 }
   validates :password, confirmation: true
-
-  puts "hello"
 end

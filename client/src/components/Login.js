@@ -42,7 +42,7 @@ function Login({ handleClose }) {
     <Container>
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+          
             <Form.Label>username</Form.Label>
             <Form.Control
               type="text"
@@ -51,10 +51,10 @@ function Login({ handleClose }) {
               onChange={(e) => handleChange(e)}
               value={formData.username}
             />
-          </Form.Group>
+        
         </Row>
         <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="formBasicPassword">
+          
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
@@ -64,7 +64,7 @@ function Login({ handleClose }) {
               value={formData.password}
             />
             <div>{errors}</div>
-          </Form.Group>
+          
         </Row>
         <Button type="submit">Submit form</Button>
       </Form>

@@ -10,7 +10,6 @@ class RainTotal < ApplicationRecord
       self.where(hour: (time)..(Time.now.to_i), trail_system_id: trail_id)
 
     precip_list.each do |hour|
-      puts hour.precipitation_last_hour
       precip_total += hour.precipitation_last_hour
     end
     precip_total.round(3)

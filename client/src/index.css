@@ -48,4 +48,28 @@ color: black;
   padding-right: 1%;
   text-decoration: none;
 }
+.centerPlease{
+  display: flex;
+  justify-content: center;
+  margin-top: 2%
+}
+.about{
+  margin-left: 10%;
+  margin-right: 10%
+}
 
+.imageSetup {
+  vertical-align: top;
+  display: inline-block;
+  /* text-align: center; */
+  margin-bottom: 2%;
+
+}
+.picture {
+  width: 90%;
+  background-color: grey;
+}
+.caption {
+  display: block;
+  text-align: center;
+}

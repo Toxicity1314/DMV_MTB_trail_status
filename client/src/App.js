@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import TrailPage from "./components/TrailPage";
-import Explore from "./components/Explore";
+import TrailSystems from "./components/TrailSystems";
+import About from "./components/About"
 import { UserProvider } from "./context/user";
 
 function App() {
@@ -15,8 +16,9 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/TrailSystem/:id" element={<TrailPage />} />
-          <Route path="/Explore" element={<Explore />} />
+          <Route path="/Explore" element={<TrailSystems />} />
           <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About/>}/>
         </Routes>
       </UserProvider>
     </div>

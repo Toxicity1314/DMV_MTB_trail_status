@@ -68,6 +68,18 @@ function ProblemForm({ handleClose, trail, setTrail }) {
       </option>
     );
   });
+  trailList.sort((a, b)=> {
+    
+    a = a.props.children.toLowerCase()
+    b = b.props.children.toLowerCase()
+    if (a < b) {
+      return -1;
+    }
+    if (a > b) {
+      return 1;
+    }
+    return 0;
+  });
   return (
     <Container>
       <Form onSubmit={handleSubmit}>

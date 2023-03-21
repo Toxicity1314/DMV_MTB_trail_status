@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 function About() {
   return (
     <div className="about">
-      <h1 className="welcome centerPlease">Welcome</h1>
+      <h1 className="centerPlease">Welcome</h1>
       <div>
         <p>
           Hello my name is Sean, and I am the creator of Virginia MTB Rain Data

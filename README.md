@@ -16,23 +16,25 @@ To run this application, you need to have Node.js and PostgreSQL installed on yo
 
 1. Clone this repository.
 
-    > git clone https://github.com/YOUR-USERNAME/Mountain-Biking-Rain-Data.git
+    > git clone https://github.com/YOUR-USERNAME/DMV_MTB_trail_status.git
 
 2. Install dependencies.
 
 > npm install --prefix client
+>
 > bundle install
 
 3. Run the React application.
 
 > npm start --prefix client
 
-4. migrate and seed the database.
+4. Open a new terminal window and migrate and seed the database.
 
 > rails db:migrate
+>
 > rails db:seed
 
-5. Open a new terminal window and run the Rails server.
+5. Run the Rails server.
 
 > rails s
 
@@ -51,7 +53,3 @@ By default this job runs every day at 4:00 AM EST and 2:00 PM EST. If you want t
 >whenever --update-crontab
 
 to update the crontab file.
-
-## Report Trail Issues
-
-If you find any issues with the trails or have any feedback on the application, please leave a comment on the specific trail page.

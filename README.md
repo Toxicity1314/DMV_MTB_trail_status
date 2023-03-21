@@ -40,7 +40,7 @@ To run this application, you need to have Node.js and PostgreSQL installed on yo
 
 ## Usage
 
-Once you have the application running, navigate to http://localhost:4000/ in your web browser to use the Mountain Biking Rain Data Website.
+Once you have the application running, navigate to http://localhost:4000/ in your web browser to use the Mountain Biking Rain Data Website. Navigate to the Trails page and select a trails system you would like to view. Once a trail system is selected you will see the page for that specific trail system which includes recent rainfall, future forcast, a trail map, issues reported, and user comments.
 
 ## Updating Rain Data
 

@@ -5,7 +5,7 @@ class FetchRainDataJob < ApplicationJob
     epoch_time = Time.now.to_i
 
     #delete items from database older than 72 hours
-    delete_time = epoch_time - 259_200
+    delete_time = epoch_time - 259200
     precip_list = RainTotal.where("hour < ?", delete_time)
     puts "deleting #{precip_list.count} pieces of rain data"
     precip_list.delete_all

@@ -26,7 +26,7 @@ function TrailSystemList({ trailSystems }) {
     if (active > Math.ceil(filteredTrails.length / 4)) {
       setActive(Math.ceil(filteredTrails.length / 4));
     }
-  }, [formData]);
+  }, [formData, active]);
 
   //sets number buttons for pagination
   let items = [];

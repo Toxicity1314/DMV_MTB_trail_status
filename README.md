@@ -6,7 +6,7 @@ Welcome to the Mountain Biking Rain Data Website! This is a full-stack web appli
 ## Features
 
 - Displays the last 3 days' rainfall data for specific trail pages.
-- Provides future forecast from an external API call.
+- Provides future forecast from the Open-Meteo API.
 - Displays trail maps from Trailforks API.
 - Allows users to leave comments and report trail issues.
 

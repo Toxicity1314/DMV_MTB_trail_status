@@ -50,7 +50,7 @@ function NavBar() {
         About
       </NavLink>
 
-      {user.username ? (
+      {/* {user.username ? (
         <NavLink
           style={inactiveSyle}
           className="NavBarLink"
@@ -81,7 +81,7 @@ function NavBar() {
         >
           SignUp
         </NavLink>
-      )}
+      )} */}
       {buttonPressed && (
         <ModalForm
           buttonPressed={buttonPressed}

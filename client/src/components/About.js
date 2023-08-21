@@ -52,7 +52,7 @@ function About() {
         <p>
           Thank you for visiting my website, and I hope it helps you plan your
           next ride! Please feel free to send any feedback to
-          toxicity1314@gmail.com.com and check out my{" "}
+          toxicity1314@gmail.com and check out my{" "}
           <a target="_blank" href="https://www.linkedin.com/in/sean-welsh">
             {" "}
             linkedin

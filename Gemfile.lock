@@ -193,7 +193,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   spring
   tzinfo-data
-  whenever (~> 1.0.0)
+  whenever
 
 RUBY VERSION
    ruby 3.2.1p31

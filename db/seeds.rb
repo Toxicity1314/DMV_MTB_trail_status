@@ -364,6 +364,23 @@ TrailSystem.create(
    trail_forks_id: "10000"
 )
 
+ts13 =
+TrailSystem.create(
+  name: "495 Jumps",
+  lat: 38.8380, 
+  long: -77.2197,
+  address: "Annandale, VA 22003",
+  trail_forks_id: "54089",
+)
+
+t1 = Trail.create(name: "495 Advanced Jump Line", trail_system_id: ts13.id)
+t2 = Trail.create(name: "495 Advanced Set", trail_system_id: ts13.id)
+t3 = Trail.create(name: "495 Dual Slalom Trail", trail_system_id: ts13.id)
+t4 = Trail.create(name: "495 Expert Line", trail_system_id: ts13.id)
+t5 = Trail.create(name: "495 Intermediate Line", trail_system_id: ts13.id)
+t6 = Trail.create(name: "495 Jumps Access Trail", trail_system_id: ts13.id)
+t7 = Trail.create(name: "Return Line", trail_system_id: ts13.id)
+
 epoch_time = Time.now.to_i
 TrailSystem.all.each do |trail_system|
   response =

@@ -19,7 +19,6 @@ function TrailPage() {
   const [trail, setTrail] = useState("");
   const { user } = useContext(UserContext);
   let { id } = useParams();
-  console.log(trail.lat);
   useEffect(() => {
     fetch(`/trail_systems/${id}`)
       .then((res) => res.json())

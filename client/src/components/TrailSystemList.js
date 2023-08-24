@@ -128,7 +128,7 @@ function TrailSystemList({ trailSystems }) {
         </Form>
       </Container>
       <Row xs={1} md={4} className="g-4">
-        {trailsToDisplay.map((trailSystem, idx) => (
+        {trailsToDisplay.map((trailSystem) => (
           <Col>
             <TrailSystemCard key={trailSystem.id} trailSystem={trailSystem} />
           </Col>

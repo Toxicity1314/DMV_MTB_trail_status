@@ -5,7 +5,7 @@ class TrailSystemsController < ApplicationController
   end
 
   def index
-    trails = TrailSystem.all
+    trails = TrailSystem.all.order(:name)
     render json: trails
   end
 end

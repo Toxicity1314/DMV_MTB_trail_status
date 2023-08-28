@@ -17,7 +17,7 @@ function TrailSystemCard({ trailSystem }) {
             ""
           )}
           <Card.Title className="cardBody">{trailSystem.name}</Card.Title>
-          <Card.Text className="cardBody">{trailSystem.address}</Card.Text>
+          <Card.Text className="cardBody">{`${trailSystem.street},\n ${trailSystem.city}, ${trailSystem.state}, ${trailSystem.zipcode} `}</Card.Text>
         </Card.Body>
       </TrailCardStyle>
       <Card.Body></Card.Body>

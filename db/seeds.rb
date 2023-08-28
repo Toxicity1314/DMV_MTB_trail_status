@@ -17,7 +17,10 @@ ts1 =
     name: "Fredericksburg Quarry",
     lat: 38.3165,
     long: -77.4856,
-    address: "Heritage Trail, Fredericksburg, VA 22401",
+    street: "Heritage Trail",
+    city: "Fredericksburg",
+    state: "VA",
+    zipcode: "22401",
     trail_map:
       "https://fredtrails.org/wp-content/uploads/2021/05/fredericksburg-quarry-007.jpg",
     trail_forks_id: "14672",
@@ -48,7 +51,10 @@ ts2 =
     name: "Motts Run Reservoir",
     lat: 38.3193,
     long: -77.5537,
-    address: "Motts Run Access Rd, Fredericksburg, VA 22407",
+    street: "Motts Run Access Rd",
+    city: "Fredericksburg",
+    state: "VA",
+    zipcode: "22407",
     trail_map:
       "https://fredtrails.org/wp-content/uploads/2021/12/motts_trail_map_ed005.png",
     trail_forks_id: "21189",
@@ -66,7 +72,10 @@ ts3 =
     name: "Locust Shade Park",
     lat: 38.5323,
     long: -77.3531,
-    address: "Locust Shade Triangle, VA 22172",
+    street: "4701 Locust Shade Dr",
+    city: "Triangle",
+    state: "VA",
+    zipcode: "22172",
     trail_map:
       "https://cdn.shopify.com/s/files/1/0022/0269/7837/products/mockup-a2884992_1024x1024.jpg?v=1571015720",
     trail_forks_id: "18974",
@@ -90,7 +99,10 @@ ts4 =
     name: "Lake Fairfax Park",
     lat: 38.9516,
     long: -77.3317,
-    address: "1400 Lake Fairfax Dr, Reston, VA 20190",
+    street: "1400 Lake Fairfax Dr",
+    city: "Reston",
+    state: "VA",
+    zipcode: "20190",
     trail_map:
       "https://images.singletracks.com/blog/wp-content/uploads/2009/10/Lake-Fairfax-375x250.png",
     trail_forks_id: "9033",
@@ -117,7 +129,10 @@ ts5 =
     name: "Laurel Hill",
     lat: 38.7014,
     long: -77.2457,
-    address: "Laurel Hill Mountain Bike Trails, Lorton, VA",
+    street: "Laurel Hill Mountain Bike Trails",
+    city: "Lorton",
+    state: "VA",
+    zipcode: "22079",
     trail_map:
       "http://1.bp.blogspot.com/_g0YuboCNUU8/S-hGmTiVngI/AAAAAAAAbas/l3ITh1NEojk/s1600/LaurelHillEquestTrails.gif",
     trail_forks_id: "15985",
@@ -137,9 +152,12 @@ ts6 =
     name: "Meadowood Recreation Area",
     lat: 38.6832,
     long: -77.2091,
-    address: "10100 Gunston Rd, Lorton, VA 22079",
+    street: "10100 Gunston Rd",
+    city: "Lorton",
+    state: "VA",
+    zipcode: "22079",
     trail_map:
-      "https://www.findyourchesapeake.com/globalimages/place_maps/meadwoodMap.jpg",
+      "",
     trail_forks_id: "11275",
   )
 
@@ -158,7 +176,10 @@ TrailSystem.create(
   name:"Carvins Cove",
   lat: 37.3579,
    long: -79.9920,
-   address: "Parking lot, 3097 Timberview Rd, Roanoke, VA 24019",
+   street: "3097 Timberview Rd",
+   city: "Roanoke",
+   state: "VA",
+   zipcode: "24019",
    trail_map: "https://images.singletracks.com/blog/wp-content/uploads/2013/08/Cove-0-orig.jpg",
    trail_forks_id: "3568"
 )
@@ -201,7 +222,10 @@ TrailSystem.create(
   name:"Frederick Watershed",
   lat: 39.5210, 
    long: -77.4964,
-   address: "District 21, Tuscarora, Maryland 21702",
+   street: "10420 Hamburg Rd",
+   city: "Frederick",
+   state: "MD",
+   zipcode: "21702",
    trail_map: "https://i.ytimg.com/vi/e8GnoBewjtM/sddefault.jpg",
    trail_forks_id: "9607"
 )
@@ -268,7 +292,10 @@ TrailSystem.create(
   name:"Blue Ridge School",
   lat: 38.2692,  
    long: -78.5533,
-   address: "31-1 Neve Dr, Dyke, VA 22935",
+   street: "31-1 Neve Dr",
+   city: "Dyke",
+   state: "VA",
+   zipcode: "22935",
    trail_map: "https://www.blueridgeschool.com/wp-content/uploads/2020/06/Blue-Ridge-School-Trail-Map_2020-1024x622.jpg",
    trail_forks_id: "23667"
 )
@@ -293,7 +320,10 @@ TrailSystem.create(
   name:"Western Slope",
   lat: 38.4300,   
    long: -78.7690,
-   address: "4276 Happy Valley Rd, Keezletown, VA 22832",
+   street: "4276 Happy Valley Rd",
+   city: "Keezletown",
+   state: "VA",
+   zipcode: "22832",
    trail_map: "https://svbcoalition.org/wp-content/uploads/2018/04/2018-VAHS-Massanutten-Race-Map-600x388.jpg",
    trail_forks_id: "19618"
 )
@@ -344,42 +374,410 @@ t199 = Trail.create(name: "Virginia '54", trail_system_id: ts10.id)
 t200 = Trail.create(name: "Special K", trail_system_id: ts10.id)
 t201 = Trail.create(name: "Secret Sauce", trail_system_id: ts10.id)
 
-ts11 = 
-TrailSystem.create(
-  name:"Lynn Woods",
-  lat: 42.4896,    
-   long: -70.9918,
-   address: "106 Pennybrook Rd, Lynn, MA 01905",
-   trail_map: "https://cos.ridewithgps.com/edited_images/standard/8635.jpg",
-   trail_forks_id: "10873"
-)
-
-ts12 = 
-TrailSystem.create(
-  name:"Teanaway Community Forest",
-  lat: 47.2560,     
-   long: -120.8930,
-   address: "1361 Ballard Rd W, Cle Elum, WA 98922",
-   trail_map: "https://www.mtbr.com/attachments/ace_8790-jpg.910155/",
-   trail_forks_id: "10000"
-)
-
 ts13 =
 TrailSystem.create(
   name: "495 Jumps",
   lat: 38.8380, 
   long: -77.2197,
-  address: "Annandale, VA 22003",
+  street:"",
+  city: "Annandale",
+  state: "VA",
+  zipcode: "22003",
+  trail_map: "",
   trail_forks_id: "54089",
 )
 
-t1 = Trail.create(name: "495 Advanced Jump Line", trail_system_id: ts13.id)
-t2 = Trail.create(name: "495 Advanced Set", trail_system_id: ts13.id)
-t3 = Trail.create(name: "495 Dual Slalom Trail", trail_system_id: ts13.id)
-t4 = Trail.create(name: "495 Expert Line", trail_system_id: ts13.id)
-t5 = Trail.create(name: "495 Intermediate Line", trail_system_id: ts13.id)
-t6 = Trail.create(name: "495 Jumps Access Trail", trail_system_id: ts13.id)
-t7 = Trail.create(name: "Return Line", trail_system_id: ts13.id)
+t202 = Trail.create(name: "495 Advanced Jump Line", trail_system_id: ts13.id)
+t203 = Trail.create(name: "495 Advanced Set", trail_system_id: ts13.id)
+t204 = Trail.create(name: "495 Dual Slalom Trail", trail_system_id: ts13.id)
+t205 = Trail.create(name: "495 Expert Line", trail_system_id: ts13.id)
+t206 = Trail.create(name: "495 Intermediate Line", trail_system_id: ts13.id)
+t207 = Trail.create(name: "495 Jumps Access Trail", trail_system_id: ts13.id)
+t208 = Trail.create(name: "Return Line", trail_system_id: ts13.id)
+
+ts14 =
+TrailSystem.create(
+  name: "Andrew Leitch Park",
+  lat: 38.6587,  
+  long: -77.3730,
+  street:"5301 Dale Blvd",
+  city: "Dale City",
+  state: "VA",
+  zipcode: "22193",
+  trail_map: "",
+  trail_forks_id: "50201",
+)
+
+t209 = Trail.create(name: "Andrew Leitch Park Double Track Trail", trail_system_id: ts14.id)
+t210 = Trail.create(name: "Hidden Gem - Andrew Leitch", trail_system_id: ts14.id)
+t211 = Trail.create(name: "Hidden Gem Loop", trail_system_id: ts14.id)
+t212 = Trail.create(name: "Hidden Gem Outer Loop South", trail_system_id: ts14.id)
+t213 = Trail.create(name: "Neabsco Greenway - Princedale to Lindendale", trail_system_id: ts14.id)
+
+ts15 =
+TrailSystem.create(
+  name: "Bull Run Occoquan (BROT)",
+  lat: 38.8380, 
+  long: -77.2197,
+  street:"12619 Old Yates Ford Rd",
+  city: "Clifton",
+  state: "VA",
+  zipcode: "20124",
+  trail_map: "",
+  trail_forks_id: "54367",
+)
+
+t214 = Trail.create(name: "Bull Run Occoquan Trail (BROT)", trail_system_id: ts15.id)
+
+ts16 =
+TrailSystem.create(
+  name: "Conway Robinson State Forest",
+  lat: 38.8034,   
+  long: -77.5877,
+  street:"12814 Lee Hwy",
+  city: "Gainesville",
+  state: "VA",
+  zipcode: "20155",
+  trail_map: "",
+  trail_forks_id: "18350",
+)
+
+t215 = Trail.create(name: "Blue Trail", trail_system_id: ts16.id)
+t216 = Trail.create(name: "Blue Trail Connector", trail_system_id: ts16.id)
+t217 = Trail.create(name: "Bullrun Overlook", trail_system_id: ts16.id)
+t218 = Trail.create(name: "Forest Road", trail_system_id: ts16.id)
+t219 = Trail.create(name: "Old RR Bed", trail_system_id: ts16.id)
+t220 = Trail.create(name: "Orange Trail", trail_system_id: ts16.id)
+t221 = Trail.create(name: "Red Trail", trail_system_id: ts16.id)
+t222 = Trail.create(name: "Wetland Way", trail_system_id: ts16.id)
+t223 = Trail.create(name: "Yellow Trail", trail_system_id: ts16.id)
+
+ts17 =
+TrailSystem.create(
+  name: "Fountainhead Regional Park",
+  lat: 38.7249,    
+  long: -77.3299,
+  street:"Outlet",
+  city: "Fairfax Station",
+  state: "VA",
+  zipcode: "22039",
+  trail_map: "",
+  trail_forks_id: "5639",
+)
+
+t224 = Trail.create(name: "Black Loop", trail_system_id: ts17.id)
+t225 = Trail.create(name: "Blue Loop", trail_system_id: ts17.id)
+t226 = Trail.create(name: "Bull Run Occoquan Trail (BROT)", trail_system_id: ts17.id)
+t227 = Trail.create(name: "Connector", trail_system_id: ts17.id)
+t228 = Trail.create(name: "Green Loop", trail_system_id: ts17.id)
+t229 = Trail.create(name: "Loop 2 Technical", trail_system_id: ts17.id)
+t230 = Trail.create(name: "Old Shockabilly", trail_system_id: ts17.id)
+t231 = Trail.create(name: "Skills Area", trail_system_id: ts17.id)
+
+ts18 =
+TrailSystem.create(
+  name: "Elizabeth Furnace",
+  lat: 38.9349, 
+  long: -78.3202,
+  street:"11263-, 11621 Fort Valley Rd",
+  city: "Fort Valley",
+  state: "VA",
+  zipcode: "22652",
+  trail_map: "",
+  trail_forks_id: "18982",
+)
+
+t232 = Trail.create(name: "Bear Wallow Spur", trail_system_id: ts18.id)
+t233 = Trail.create(name: "Blue Wallow Trail", trail_system_id: ts18.id)
+t234 = Trail.create(name: "Botts Trail", trail_system_id: ts18.id)
+t235 = Trail.create(name: "Massanutten", trail_system_id: ts18.id)
+t236 = Trail.create(name: "Meneka Peak", trail_system_id: ts18.id)
+t237 = Trail.create(name: "Mine Gap Trail", trail_system_id: ts18.id)
+t238 = Trail.create(name: "Mudhole Gap", trail_system_id: ts18.id)
+t239 = Trail.create(name: "Sidewinder", trail_system_id: ts18.id)
+t240 = Trail.create(name: "Signal Knob", trail_system_id: ts18.id)
+t241 = Trail.create(name: "Tuscarora - Doll Ridge", trail_system_id: ts18.id)
+
+ts19 =
+TrailSystem.create(
+  name: "James S. Long Regional Park",
+  lat: 38.8496,  
+  long: -77.6288,
+  street:"4603 James Madison Hwy",
+  city: "Haymarket",
+  state: "VA",
+  zipcode: "20169",
+  trail_map: "",
+  trail_forks_id: "54103",
+)
+
+t242 = Trail.create(name: "James S. Long Trail", trail_system_id: ts19.id)
+
+ts20 =
+TrailSystem.create(
+  name: "Lake Accotink Park",
+  lat: 38.7943,   
+  long: -77.2151,
+  street:"7500 Accotink Park Rd",
+  city: "Springfield",
+  state: "VA",
+  zipcode: "22150",
+  trail_map: "",
+  trail_forks_id: "14652",
+)
+
+t242 = Trail.create(name: "Lake Accotink Loop", trail_system_id: ts20.id)
+
+ts23 =
+TrailSystem.create(
+  name: "Mount Vernon Park",
+  lat: 38.7692,     
+  long: -77.0631,
+  street:"6801 Fort Hunt Rd",
+  city: "Alexandria",
+  state: "VA",
+  zipcode: "22307",
+  trail_map: "",
+  trail_forks_id: "18976",
+)
+
+t258 = Trail.create(name: "Access Trail", trail_system_id: ts23.id)
+t259 = Trail.create(name: "Belle View Connector", trail_system_id: ts23.id)
+t260 = Trail.create(name: "Connector", trail_system_id: ts23.id)
+t261 = Trail.create(name: "Loop", trail_system_id: ts23.id)
+t262 = Trail.create(name: "Parking Lot Connector", trail_system_id: ts23.id)
+t263 = Trail.create(name: "South Loop", trail_system_id: ts23.id)
+t264 = Trail.create(name: "The Zone", trail_system_id: ts23.id)
+t265 = Trail.create(name: "Upper Loop", trail_system_id: ts23.id)
+
+ts24 =
+TrailSystem.create(
+  name: "Shenandoah River State Park",
+  lat: 38.8492,      
+  long: -78.3073,
+  street:"350 Daughter of Stars Dr",
+  city: "Bentonville",
+  state: "VA",
+  zipcode: "22610",
+  trail_map: "",
+  trail_forks_id: "25016",
+)
+
+t266 = Trail.create(name: "Allen's Mountain", trail_system_id: ts24.id)
+t267 = Trail.create(name: "Bear Bottom Loop", trail_system_id: ts24.id)
+t268 = Trail.create(name: "Bear Bottom Loop Access", trail_system_id: ts24.id)
+t269 = Trail.create(name: "Big Oak Trail", trail_system_id: ts24.id)
+t270 = Trail.create(name: "Bluebell", trail_system_id: ts24.id)
+t271 = Trail.create(name: "Cabin Connector Trail", trail_system_id: ts24.id)
+t272 = Trail.create(name: "Campbell's Jump", trail_system_id: ts24.id)
+t273 = Trail.create(name: "Campground Trail", trail_system_id: ts24.id)
+t274 = Trail.create(name: "Cottonwood Trail", trail_system_id: ts24.id)
+t275 = Trail.create(name: "Cottonwood Trail Access", trail_system_id: ts24.id)
+t276 = Trail.create(name: "Cottonwood Trail Loop", trail_system_id: ts24.id)
+t277 = Trail.create(name: "Culler's Trail", trail_system_id: ts24.id)
+t278 = Trail.create(name: "Hemlock Hollow", trail_system_id: ts24.id)
+t279 = Trail.create(name: "Overlook Trail", trail_system_id: ts24.id)
+t280 = Trail.create(name: "Point Trail", trail_system_id: ts24.id)
+t281 = Trail.create(name: "Redtail Ridge Trail", trail_system_id: ts24.id)
+t282 = Trail.create(name: "River Trail", trail_system_id: ts24.id)
+t283 = Trail.create(name: "Shale Barrens", trail_system_id: ts24.id)
+t284 = Trail.create(name: "Tulip Poplar Trail", trail_system_id: ts24.id)
+t285 = Trail.create(name: "Turkey Roost", trail_system_id: ts24.id)
+
+ts25 =
+TrailSystem.create(
+  name: "Wakefield Park",
+  lat: 38.8181,       
+  long: -77.2246,
+  street:"8100 VA-620",
+  city: "Annandale",
+  state: "VA",
+  zipcode: "22003",
+  trail_map: "",
+  trail_forks_id: "14653",
+)
+
+t286 = Trail.create(name: "495 Trail", trail_system_id: ts25.id)
+t287 = Trail.create(name: "Berm Ascent Trail", trail_system_id: ts25.id)
+t288 = Trail.create(name: "Civil War Trench Trail", trail_system_id: ts25.id)
+t289 = Trail.create(name: "Connector", trail_system_id: ts25.id)
+t290 = Trail.create(name: "Gully Wash", trail_system_id: ts25.id)
+t291 = Trail.create(name: "Hydra", trail_system_id: ts25.id)
+t292 = Trail.create(name: "Interior", trail_system_id: ts25.id)
+t293 = Trail.create(name: "Long Branch Stream Valley Trail", trail_system_id: ts25.id)
+t294 = Trail.create(name: "Lost Island", trail_system_id: ts25.id)
+t295 = Trail.create(name: "MTB Trail", trail_system_id: ts25.id)
+t296 = Trail.create(name: "New Race Course Stream Valley Trail", trail_system_id: ts25.id)
+t297 = Trail.create(name: "Power Station Ascent Hill", trail_system_id: ts25.id)
+t298 = Trail.create(name: "Power Station Descent Hill", trail_system_id: ts25.id)
+t299 = Trail.create(name: "Powerline Trail", trail_system_id: ts25.id)
+t300 = Trail.create(name: "Rusted Truck", trail_system_id: ts25.id)
+t301 = Trail.create(name: "Salamander", trail_system_id: ts25.id)
+t302 = Trail.create(name: "Sound Wall Perimeter", trail_system_id: ts25.id)
+t303 = Trail.create(name: "Soup Kitchen", trail_system_id: ts25.id)
+t304 = Trail.create(name: "The Berms", trail_system_id: ts25.id)
+t305 = Trail.create(name: "The Bowl Lower Entrance/Exit", trail_system_id: ts25.id)
+t306 = Trail.create(name: "The Stream Valley - Non-Race Course Section", trail_system_id: ts25.id)
+t307 = Trail.create(name: "The Stream Valley - Race Course", trail_system_id: ts25.id)
+t308 = Trail.create(name: "Timid Woodland Creature", trail_system_id: ts25.id)
+t309 = Trail.create(name: "Trailhead Spur", trail_system_id: ts25.id)
+t310 = Trail.create(name: "Triton", trail_system_id: ts25.id)
+t311 = Trail.create(name: "Wakefield Bowl - Pit Row", trail_system_id: ts25.id)
+
+ts26 =
+TrailSystem.create(
+  name: "James River Park System",
+  lat: 37.5300,        
+  long: -77.4694,
+  street:"",
+  city: "Richmond",
+  state: "VA",
+  zipcode: "23220",
+  trail_map: "",
+  trail_forks_id: "5399",
+)
+
+t312 = Trail.create(name: "Access Trail", trail_system_id: ts26.id)
+t313 = Trail.create(name: "Ancarrow's Landing", trail_system_id: ts26.id)
+t314 = Trail.create(name: "Ancarrow's Landing Access", trail_system_id: ts26.id)
+t315 = Trail.create(name: "Ancarrow's Access Trail", trail_system_id: ts26.id)
+t316 = Trail.create(name: "Belle Isle - Wast", trail_system_id: ts26.id)
+t317 = Trail.create(name: "Belle Isle East", trail_system_id: ts26.id)
+t318 = Trail.create(name: "Brown Way", trail_system_id: ts26.id)
+t319 = Trail.create(name: "Buttermilk East", trail_system_id: ts26.id)
+t320 = Trail.create(name: "Buttermilk Heights", trail_system_id: ts26.id)
+t321 = Trail.create(name: "Buttermilk Proper", trail_system_id: ts26.id)
+t322 = Trail.create(name: "Buttermilk Proper Access", trail_system_id: ts26.id)
+t323 = Trail.create(name: "Buttermilk to Southern Access", trail_system_id: ts26.id)
+t324 = Trail.create(name: "Dogwood Dell Loop", trail_system_id: ts26.id)
+t325 = Trail.create(name: "Dogwood Dell Loop Access", trail_system_id: ts26.id)
+t326 = Trail.create(name: "Forest Hill Park", trail_system_id: ts26.id)
+t327 = Trail.create(name: "Lost Garden", trail_system_id: ts26.id)
+t328 = Trail.create(name: "Lost Trail", trail_system_id: ts26.id)
+t329 = Trail.create(name: "North Bank", trail_system_id: ts26.id)
+t330 = Trail.create(name: "Northbank Heights", trail_system_id: ts26.id)
+
+ts27 =
+TrailSystem.create(
+  name: "Pocahontas State Park",
+  lat: 37.4010,         
+  long: -77.5551,
+  street:"7298 Courthouse Rd",
+  city: "Chesterfield",
+  state: "VA",
+  zipcode: "23832",
+  trail_map: "",
+  trail_forks_id: "6915",
+)
+
+t331 = Trail.create(name: "Access Trail", trail_system_id: ts27.id)
+t332 = Trail.create(name: "Bell Lap", trail_system_id: ts27.id)
+t333 = Trail.create(name: "Bell Lap Uphill", trail_system_id: ts27.id)
+t334 = Trail.create(name: "Bellberry", trail_system_id: ts27.id)
+t335 = Trail.create(name: "Blue Jay Way", trail_system_id: ts27.id)
+t336 = Trail.create(name: "Blueberry Hill - Downhill", trail_system_id: ts27.id)
+t337 = Trail.create(name: "Blueberry Hill - Uphill", trail_system_id: ts27.id)
+t338 = Trail.create(name: "Box Turtle Bailout", trail_system_id: ts27.id)
+t339 = Trail.create(name: "Box Turtle Trail", trail_system_id: ts27.id)
+t340 = Trail.create(name: "Clark Forest Trail", trail_system_id: ts27.id)
+t341 = Trail.create(name: "Connector", trail_system_id: ts27.id)
+t342 = Trail.create(name: "Corkscrew", trail_system_id: ts27.id)
+t343 = Trail.create(name: "Freight Line - Dual Slalom", trail_system_id: ts27.id)
+t344 = Trail.create(name: "Gill Forest Trail", trail_system_id: ts27.id)
+t345 = Trail.create(name: "JT Inner Loop", trail_system_id: ts27.id)
+t346 = Trail.create(name: "JT Trail", trail_system_id: ts27.id)
+t347 = Trail.create(name: "Lakeview 1", trail_system_id: ts27.id)
+t348 = Trail.create(name: "Lakeview 3", trail_system_id: ts27.id)
+t349 = Trail.create(name: "Lakeview Spur Trail", trail_system_id: ts27.id)
+t350 = Trail.create(name: "Lakeview Too", trail_system_id: ts27.id)
+t351 = Trail.create(name: "Little West Virginia", trail_system_id: ts27.id)
+t352 = Trail.create(name: "Lost Spring", trail_system_id: ts27.id)
+t353 = Trail.create(name: "LV3 Connector", trail_system_id: ts27.id)
+t354 = Trail.create(name: "Millstone", trail_system_id: ts27.id)
+t355 = Trail.create(name: "Millstone Jump Line", trail_system_id: ts27.id)
+t356 = Trail.create(name: "Moonshine Run", trail_system_id: ts27.id)
+t357 = Trail.create(name: "Moonshine Run Double Drop", trail_system_id: ts27.id)
+t358 = Trail.create(name: "Morel Ravine", trail_system_id: ts27.id)
+t359 = Trail.create(name: "Morgan Trail System Access", trail_system_id: ts27.id)
+t360 = Trail.create(name: "Muddy Buddy", trail_system_id: ts27.id)
+t361 = Trail.create(name: "Qualla Road Connector", trail_system_id: ts27.id)
+t362 = Trail.create(name: "Roper", trail_system_id: ts27.id)
+t363 = Trail.create(name: "SkinnyDoodle DH", trail_system_id: ts27.id)
+t364 = Trail.create(name: "Sunsetter", trail_system_id: ts27.id)
+t365 = Trail.create(name: "Tall Oaks Trail", trail_system_id: ts27.id)
+t366 = Trail.create(name: "Taylor Forest Trail", trail_system_id: ts27.id)
+t367 = Trail.create(name: "The Chute", trail_system_id: ts27.id)
+t368 = Trail.create(name: "Timberdoodle DH", trail_system_id: ts27.id)
+t369 = Trail.create(name: "Zero", trail_system_id: ts27.id)
+
+ts28 =
+TrailSystem.create(
+  name: "Reddish Knob",
+  lat: 38.4625,          
+  long: -79.2417,
+  street:"",
+  city: "Briery Branch",
+  state: "VA",
+  zipcode: "22821",
+  trail_map: "",
+  trail_forks_id: "11351",
+)
+
+t331 = Trail.create(name: "Big Hollow Trail", trail_system_id: ts28.id)
+t332 = Trail.create(name: "Blueberry Trail", trail_system_id: ts28.id)
+t333 = Trail.create(name: "Bother Ridge Trail", trail_system_id: ts28.id)
+t334 = Trail.create(name: "Cliff trail", trail_system_id: ts28.id)
+t335 = Trail.create(name: "Deathstar", trail_system_id: ts28.id)
+t336 = Trail.create(name: "Dog Graves Access Road", trail_system_id: ts28.id)
+t337 = Trail.create(name: "Festival Trail", trail_system_id: ts28.id)
+t338 = Trail.create(name: "Grooms Ridge", trail_system_id: ts28.id)
+t339 = Trail.create(name: "Heartbreak DH", trail_system_id: ts28.id)
+t340 = Trail.create(name: "Hidden Rocks", trail_system_id: ts28.id)
+t341 = Trail.create(name: "Hone Quarry Ridge", trail_system_id: ts28.id)
+t342 = Trail.create(name: "Lynn Trail", trail_system_id: ts28.id)
+t343 = Trail.create(name: "Meadow Knob", trail_system_id: ts28.id)
+t344 = Trail.create(name: "Mines Run Trail", trail_system_id: ts28.id)
+t345 = Trail.create(name: "Mud Pond Gap", trail_system_id: ts28.id)
+t346 = Trail.create(name: "Narrowback Trail - East", trail_system_id: ts28.id)
+t347 = Trail.create(name: "Narrowback Trail - West", trail_system_id: ts28.id)
+t348 = Trail.create(name: "Pond Knob", trail_system_id: ts28.id)
+t349 = Trail.create(name: "Reddish Knob Trail", trail_system_id: ts28.id)
+t350 = Trail.create(name: "Rocky Run Trail", trail_system_id: ts28.id)
+t351 = Trail.create(name: "Shenandoah Mountain Trail", trail_system_id: ts28.id)
+t352 = Trail.create(name: "Shenandoah Mtn North", trail_system_id: ts28.id)
+t353 = Trail.create(name: "Slate Run Trail", trail_system_id: ts28.id)
+t354 = Trail.create(name: "Slate Springs", trail_system_id: ts28.id)
+t355 = Trail.create(name: "Tillman West", trail_system_id: ts28.id)
+t356 = Trail.create(name: "Timber Ridge Trail", trail_system_id: ts28.id)
+t357 = Trail.create(name: "Tower Trail", trail_system_id: ts28.id)
+t358 = Trail.create(name: "Trail A", trail_system_id: ts28.id)
+t359 = Trail.create(name: "Tree Fall Trail", trail_system_id: ts28.id)
+t360 = Trail.create(name: "Wild Oak Trail", trail_system_id: ts28.id)
+t361 = Trail.create(name: "Wolf Ridge Trail", trail_system_id: ts28.id)
+t362 = Trail.create(name: "Bear Draft Trail", trail_system_id: ts28.id)
+t363 = Trail.create(name: "Big Bald Knob", trail_system_id: ts28.id)
+t364 = Trail.create(name: "Big Game", trail_system_id: ts28.id)
+t365 = Trail.create(name: "Big Game (Lower)", trail_system_id: ts28.id)
+t366 = Trail.create(name: "Braley", trail_system_id: ts28.id)
+t367 = Trail.create(name: "Braley Pond Loop", trail_system_id: ts28.id)
+t368 = Trail.create(name: "Bridge Hollow", trail_system_id: ts28.id)
+t369 = Trail.create(name: "Chimeny Hollow", trail_system_id: ts28.id)
+t331 = Trail.create(name: "Dowell's Draft", trail_system_id: ts28.id)
+t332 = Trail.create(name: "Georgia Camp", trail_system_id: ts28.id)
+t333 = Trail.create(name: "Grindstone Mountain Trail", trail_system_id: ts28.id)
+t334 = Trail.create(name: "Hankey Mountain", trail_system_id: ts28.id)
+t335 = Trail.create(name: "Hankey Mountain Trail", trail_system_id: ts28.id)
+t336 = Trail.create(name: "Horse Trough Hollow", trail_system_id: ts28.id)
+t337 = Trail.create(name: "Johnson Draft Trail", trail_system_id: ts28.id)
+t338 = Trail.create(name: "Little Skidmore", trail_system_id: ts28.id)
+t339 = Trail.create(name: "Lookout Mountain Trail", trail_system_id: ts28.id)
+t340 = Trail.create(name: "Magic Moss Section of The Wild Oak Trail", trail_system_id: ts28.id)
+t341 = Trail.create(name: "Ramseys Draft Trail", trail_system_id: ts28.id)
+t342 = Trail.create(name: "Road Hollow", trail_system_id: ts28.id)
+t343 = Trail.create(name: "Skidmore Fork", trail_system_id: ts28.id)
+t344 = Trail.create(name: "Springhouse Ridge Trail", trail_system_id: ts28.id)
+t345 = Trail.create(name: "Trimble Mountain Trail", trail_system_id: ts28.id)
+
 
 epoch_time = Time.now.to_i
 TrailSystem.all.each do |trail_system|

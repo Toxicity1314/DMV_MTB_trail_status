@@ -5,5 +5,13 @@ export default styled.div`
     background: white;
     color: black;
     text-align: center;
+    
+  }
+  .textSizing{
+    font-size: 1.25vw;
+  }
+  .imageSizing{
+    width: 100%;
+    height: 10vw;
   }
 `;

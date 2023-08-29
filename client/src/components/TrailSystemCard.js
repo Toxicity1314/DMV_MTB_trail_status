@@ -7,28 +7,29 @@ import favicon from "../favicon.ico"
 function TrailSystemCard({ trailSystem }) {
   return (
     
-    <Card style={{ height: "100%" }}>
-      {trailSystem.trail_map ? <Card.Img variant="top" src={trailSystem.trail_map} alt="trail map" />: <Card.Img variant="top" src={favicon} alt="trail map" />}
       <TrailCardStyle>
-        <Card.Body className="cardBody">
+    <Card>
+      {trailSystem.trail_map ? <Card.Img className = "imageSizing" variant="top" src={trailSystem.trail_map} alt="trail map" />: <Card.Img className = "imageSizing" variant="top" src={favicon} alt="trail map" />}
+        <Card.Body className="cardBody textSizing">
           {trailSystem.issues.length > 0 ? (
             <Card.Text className="cardBody">⚠️</Card.Text>
           ) : (
             ""
           )}
-          <Card.Title className="cardBody">{trailSystem.name}</Card.Title>
-          <Card.Text className="cardBody">{`${trailSystem.street},\n ${trailSystem.city}, ${trailSystem.state}, ${trailSystem.zipcode} `}</Card.Text>
-        </Card.Body>
-      </TrailCardStyle>
-      <Card.Body></Card.Body>
+          <Card.Title className="textSizing">{trailSystem.name}</Card.Title>
+          <Card.Text className ="textSizing">{`${trailSystem.street},\n ${trailSystem.city}, ${trailSystem.state}, ${trailSystem.zipcode} `}</Card.Text>
+          
       <Button
-        mt-auto
+        varient = "primary"
+        className="textSizing"
         size="sm"
         onClick={() => window.location.assign(`/TrailSystem/${trailSystem.id}`)}
-      >
+        >
         Checkout Trail Information
       </Button>
+        </Card.Body>
     </Card>
+      </TrailCardStyle>
   );
 }
 

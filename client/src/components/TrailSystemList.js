@@ -99,7 +99,7 @@ function TrailSystemList({ trailSystems }) {
   };
 
   return (
-    <div>
+    <div className="narrow">
       <Container style={{ paddingBottom: "2%" }}>
         <Form>
           <Row>
@@ -129,7 +129,7 @@ function TrailSystemList({ trailSystems }) {
       </Container>
       <Row xs={1} md={4} className="g-4">
         {trailsToDisplay.map((trailSystem) => (
-          <Col>
+          <Col xs={3}>
             <TrailSystemCard key={trailSystem.id} trailSystem={trailSystem} />
           </Col>
         ))}

@@ -27,31 +27,23 @@ function TrailSystemsPagination({
   const handlePagination = (e) => {
     let start = 0;
     let end = 0;
-    if (e.target.textContent === "‹Previous" || e.target.textContent === "‹") {
+    let buttonClicked = buttonClicked;
+    if (buttonClicked === "‹Previous" || buttonClicked === "‹") {
       start = (active - 2) * trailsPerPage;
       setActive(active - 1);
-    } else if (
-      e.target.textContent === "«First" ||
-      e.target.textContent === "«"
-    ) {
+    } else if (buttonClicked === "«First" || buttonClicked === "«") {
       start = 0;
       setActive(1);
-    } else if (
-      e.target.textContent === "›Next" ||
-      e.target.textContent === "›"
-    ) {
+    } else if (buttonClicked === "›Next" || buttonClicked === "›") {
       start = active * trailsPerPage;
       setActive(active + 1);
-    } else if (
-      e.target.textContent === "»Last" ||
-      e.target.textContent === "»"
-    ) {
+    } else if (buttonClicked === "»Last" || buttonClicked === "»") {
       start =
         (Math.ceil(trailSystems.length / trailsPerPage) - 1) * trailsPerPage;
       setActive(Math.ceil(trailSystems.length / trailsPerPage));
     } else {
-      start = parseInt(e.target.textContent - 1) * trailsPerPage;
-      setActive(parseInt(e.target.textContent));
+      start = parseInt(buttonClicked - 1) * trailsPerPage;
+      setActive(parseInt(buttonClicked));
     }
 
     end = start + trailsPerPage;

@@ -13,6 +13,7 @@ function TrailSystemsForm({
   formData,
   setFormData,
 }) {
+  
   //calculates what trails to display based on form selections and pagination
   useEffect(() => {
     let start = (active - 1) * formData.trailsPerPage;
@@ -20,12 +21,12 @@ function TrailSystemsForm({
     let filteredTrails = trailSystems.filter((trail) => {
       return trail.name.toLowerCase().includes(formData.search.toLowerCase());
     });
+    let maxPagination = Math.ceil(
+      filteredTrails.length / formData.trailsPerPage
+    );
     setTrailsToDisplay(filteredTrails.slice(start, end));
     setTrailCount(filteredTrails.length);
-    if (active > Math.ceil(filteredTrails.length / formData.trailsPerPage)) {
-      setActive(Math.ceil(filteredTrails.length / formData.trailsPerPage));
-    }
-
+    if (active > maxPagination) setActive(maxPagination);
   }, [
     formData,
     active,
@@ -36,12 +37,18 @@ function TrailSystemsForm({
   ]);
 
   const handleFormChange = (e) => {
-    if (e.target.name === "trailsPerPage") {
-      setFormData({ ...formData, [e.target.name]: parseInt(e.target.value) });
-    } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
-    if (e.target.name === "sort" && e.target.value === "A") {
+    const name = e.target.name;
+    const value =
+      e.target.name === "trailsPerPage"
+        ? parseInt(e.target.value)
+        : e.target.value;
+    setFormData({ ...formData, [name]: value });
+    if (name === "search") setActive(1);
+  };
+
+  const handleSort = (e) => {
+    handleFormChange(e);
+    if (e.target.value === "A") {
       trailSystems.sort((a, b) => {
         a = a.name.toLowerCase();
         b = b.name.toLowerCase();
@@ -53,7 +60,7 @@ function TrailSystemsForm({
         }
         return 0;
       });
-    } else if (e.target.name === "sort" && e.target.value === "Z") {
+    } else if (e.target.value === "Z") {
       trailSystems.sort((a, b) => {
         a = a.name.toLowerCase();
         b = b.name.toLowerCase();
@@ -65,8 +72,6 @@ function TrailSystemsForm({
         }
         return 0;
       });
-    } else if (e.target.name === "search") {
-      setActive(1);
     }
   };
 
@@ -78,7 +83,7 @@ function TrailSystemsForm({
             <Col>
               <Form.Label className="centerPlease">Sort</Form.Label>
               <Form.Select
-                onChange={handleFormChange}
+                onChange={(e) => handleSort(e)}
                 value={formData.sort}
                 name="sort"
               >
@@ -92,7 +97,7 @@ function TrailSystemsForm({
               <Form.Control
                 name="search"
                 placeholder="Search"
-                onChange={(e) => handleFormChange(e)}
+                onChange={handleFormChange}
                 value={formData.password}
               />
             </Col>

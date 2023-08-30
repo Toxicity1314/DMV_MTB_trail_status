@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import TrailPage from "./components/TrailPage";
-import TrailSystems from "./components/TrailSystems";
+import TrailSystems from "./components/TrailSystems/TrailSystems";
 import About from "./components/About"
 import { UserProvider } from "./context/user";
 

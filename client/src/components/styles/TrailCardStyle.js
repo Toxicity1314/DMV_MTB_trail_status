@@ -10,20 +10,19 @@ export default styled.div`
     height: 236.567px;
     padding: 0%;
   }
-  .textSizing{
+  .textSizing {
     font-size: 75%;
     width: 100%;
-    
   }
-  .imageSizing{
+  .imageSizing {
     width: 160.4px;
     height: 100px;
   }
-  .alert{
+  .alert {
     padding: 0;
     margin: 0;
   }
-  .button{
+  .button {
     position: absolute;
     bottom: 1px;
     left: 0.5px;

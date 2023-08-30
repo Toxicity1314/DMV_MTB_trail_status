@@ -2,33 +2,49 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { TrailCardStyle } from "./styles";
-import favicon from "../favicon.ico"
+import favicon from "../favicon.ico";
 
 function TrailSystemCard({ trailSystem }) {
   return (
-    
-    <Card style={{ height: "100%" }}>
-      {trailSystem.trail_map ? <Card.Img variant="top" src={trailSystem.trail_map} alt="trail map" />: <Card.Img variant="top" src={favicon} alt="trail map" />}
-      <TrailCardStyle>
-        <Card.Body className="cardBody">
+    <TrailCardStyle>
+      <Card className="cardBody">
+        {trailSystem.trail_map ? (
+          <Card.Img
+            className="imageSizing"
+            variant="top"
+            src={trailSystem.trail_map}
+            alt="trail map"
+          />
+        ) : (
+          <Card.Img
+            className="imageSizing"
+            variant="top"
+            src={favicon}
+            alt="trail map"
+          />
+        )}
+        <Card.Body className="alert">
           {trailSystem.issues.length > 0 ? (
-            <Card.Text className="cardBody">⚠️</Card.Text>
+            <Card.Text className="alert">⚠️</Card.Text>
           ) : (
             ""
           )}
-          <Card.Title className="cardBody">{trailSystem.name}</Card.Title>
-          <Card.Text className="cardBody">{`${trailSystem.street},\n ${trailSystem.city}, ${trailSystem.state}, ${trailSystem.zipcode} `}</Card.Text>
+          <Card.Title className="textSizing">{trailSystem.name}</Card.Title>
+          <Card.Text className="textSizing">{`${trailSystem.street},\n ${trailSystem.city}, ${trailSystem.state}, ${trailSystem.zipcode} `}</Card.Text>
+
+          <Button
+            varient="primary"
+            className="textSizing button"
+            size="sm"
+            onClick={() =>
+              window.location.assign(`/TrailSystem/${trailSystem.id}`)
+            }
+          >
+            Trail Information
+          </Button>
         </Card.Body>
-      </TrailCardStyle>
-      <Card.Body></Card.Body>
-      <Button
-        mt-auto
-        size="sm"
-        onClick={() => window.location.assign(`/TrailSystem/${trailSystem.id}`)}
-      >
-        Checkout Trail Information
-      </Button>
-    </Card>
+      </Card>
+    </TrailCardStyle>
   );
 }
 

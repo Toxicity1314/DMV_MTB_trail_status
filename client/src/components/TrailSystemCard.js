@@ -8,11 +8,11 @@ function TrailSystemCard({ trailSystem }) {
   return (
     
       <TrailCardStyle>
-    <Card>
+    <Card className="cardBody">
       {trailSystem.trail_map ? <Card.Img className = "imageSizing" variant="top" src={trailSystem.trail_map} alt="trail map" />: <Card.Img className = "imageSizing" variant="top" src={favicon} alt="trail map" />}
-        <Card.Body className="cardBody textSizing">
+        <Card.Body className="alert" >
           {trailSystem.issues.length > 0 ? (
-            <Card.Text className="cardBody">⚠️</Card.Text>
+            <Card.Text className="alert">⚠️</Card.Text>
           ) : (
             ""
           )}
@@ -21,11 +21,11 @@ function TrailSystemCard({ trailSystem }) {
           
       <Button
         varient = "primary"
-        className="textSizing"
+        className="textSizing button"
         size="sm"
         onClick={() => window.location.assign(`/TrailSystem/${trailSystem.id}`)}
         >
-        Checkout Trail Information
+        Trail Information
       </Button>
         </Card.Body>
     </Card>

@@ -1,41 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-function TrailSystemsForm({
-  active,
-  setActive,
-  trailSystems,
-  setTrailsToDisplay,
-  setTrailCount,
-  formData,
-  setFormData,
-}) {
-  
-  //calculates what trails to display based on form selections and pagination
-  useEffect(() => {
-    let start = (active - 1) * formData.trailsPerPage;
-    let end = start + formData.trailsPerPage;
-    let filteredTrails = trailSystems.filter((trail) => {
-      return trail.name.toLowerCase().includes(formData.search.toLowerCase());
-    });
-    let maxPagination = Math.ceil(
-      filteredTrails.length / formData.trailsPerPage
-    );
-    setTrailsToDisplay(filteredTrails.slice(start, end));
-    setTrailCount(filteredTrails.length);
-    if (active > maxPagination) setActive(maxPagination);
-  }, [
-    formData,
-    active,
-    setTrailsToDisplay,
-    setActive,
-    setTrailCount,
-    trailSystems,
-  ]);
-
+function TrailSystemsForm({ setActive, formData, setFormData }) {
   const handleFormChange = (e) => {
     const name = e.target.name;
     const value =
@@ -46,35 +15,6 @@ function TrailSystemsForm({
     if (name === "search") setActive(1);
   };
 
-  const handleSort = (e) => {
-    handleFormChange(e);
-    if (e.target.value === "A") {
-      trailSystems.sort((a, b) => {
-        a = a.name.toLowerCase();
-        b = b.name.toLowerCase();
-        if (a < b) {
-          return -1;
-        }
-        if (a > b) {
-          return 1;
-        }
-        return 0;
-      });
-    } else if (e.target.value === "Z") {
-      trailSystems.sort((a, b) => {
-        a = a.name.toLowerCase();
-        b = b.name.toLowerCase();
-        if (a > b) {
-          return -1;
-        }
-        if (a < b) {
-          return 1;
-        }
-        return 0;
-      });
-    }
-  };
-
   return (
     <div>
       <Container style={{ paddingBottom: "2%" }}>
@@ -83,13 +23,15 @@ function TrailSystemsForm({
             <Col>
               <Form.Label className="centerPlease">Sort</Form.Label>
               <Form.Select
-                onChange={(e) => handleSort(e)}
+                onChange={(e) => handleFormChange(e)}
                 value={formData.sort}
                 name="sort"
               >
                 <option value="">Please select a Sort Option</option>
                 <option value="A">A to Z</option>
                 <option value="Z">Z to A</option>
+                <option value="rain asc">Most rain</option>
+                <option value="rain desc">Least rain</option>
               </Form.Select>
             </Col>
             <Col>
@@ -98,7 +40,7 @@ function TrailSystemsForm({
                 name="search"
                 placeholder="Search"
                 onChange={handleFormChange}
-                value={formData.password}
+                value={formData.search}
               />
             </Col>
             <Col>

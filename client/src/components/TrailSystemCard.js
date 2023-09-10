@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { TrailCardStyle } from "./styles";
 import favicon from "../favicon.ico";
+import { NavLink } from "react-router-dom";
 
 function TrailSystemCard({ trailSystem }) {
   return (
@@ -31,17 +32,11 @@ function TrailSystemCard({ trailSystem }) {
           )}
           <Card.Title className="textSizing">{trailSystem.name}</Card.Title>
           <Card.Text className="textSizing">{`${trailSystem.street},\n ${trailSystem.city}, ${trailSystem.state}, ${trailSystem.zipcode} `}</Card.Text>
-
-          <Button
-            varient="primary"
-            className="textSizing button"
-            size="sm"
-            onClick={() =>
-              window.location.assign(`/TrailSystem/${trailSystem.id}`)
-            }
-          >
-            Trail Information
-          </Button>
+          <NavLink to={`/TrailSystem/${trailSystem.id}`}>
+            <Button varient="primary" className="textSizing button" size="sm">
+              Trail Information
+            </Button>
+          </NavLink>
         </Card.Body>
       </Card>
     </TrailCardStyle>

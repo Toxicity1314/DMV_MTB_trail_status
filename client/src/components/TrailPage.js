@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { fetchHandler } from "../Fetch";
 import TrailMap from "./TrailMap";
 import Button from "react-bootstrap/Button";
 import ModalForm from "./ModalForm";

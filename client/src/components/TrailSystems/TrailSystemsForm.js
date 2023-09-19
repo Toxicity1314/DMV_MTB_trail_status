@@ -11,7 +11,6 @@ function TrailSystemsForm({ setActive, formData, setFormData }) {
       e.target.name === "trailsPerPage"
         ? parseInt(e.target.value)
         : e.target.value;
-        console.log(`name ${name} value ${value}`)
     setFormData({ ...formData, [name]: value });
     if (name === "search") setActive(1);
   };

@@ -18,8 +18,12 @@ function TrailSystems() {
       .then((trails) => {
         setTrailSystems(trails);
         setTrailCount(trails.length);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
   }, []);
+
   const maxActive = useMemo(() => {
     return Math.ceil(trailCount / formData.trailsPerPage);
   }, [trailCount, formData.trailsPerPage]);
@@ -41,16 +45,21 @@ function TrailSystems() {
   }, [formData.search, trailSystems, activeToLarge, maxActive, trailCount]);
 
   const sortedTrails = useMemo(() => {
+    let hours = formData.sort.slice(3);
     if (formData.sort === "A") {
       return [...filteredTrails].sort((a, b) => a.name.localeCompare(b.name));
     } else if (formData.sort === "Z") {
       return [...filteredTrails].sort((a, b) => b.name.localeCompare(a.name));
-    } else if (formData.sort === "rain asc") {
-      return [...filteredTrails].sort((a, b) => b.last_72 > a.last_72);
-    } else if (formData.sort === "rain desc") {
-      return [...filteredTrails].sort((a, b) => a.last_72 > b.last_72);
+    } else if (formData.sort.match(/\basc(24|48|72)\b/)) {
+      return [...filteredTrails].sort(
+        (a, b) => b[`last_${hours}`] - a[`last_${hours}`]
+      );
+    } else if (formData.sort.match(/\bdes(24|48|72)\b/)) {
+      return [...filteredTrails].sort(
+        (a, b) => a[`last_${hours}`] - b[`last_${hours}`]
+      );
     } else {
-      return filteredTrails;
+      return [...filteredTrails];
     }
   }, [formData.sort, filteredTrails]);
 

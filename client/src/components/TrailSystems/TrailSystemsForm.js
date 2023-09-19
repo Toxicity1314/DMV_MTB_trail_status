@@ -30,8 +30,12 @@ function TrailSystemsForm({ setActive, formData, setFormData }) {
                 <option value="">Please select a Sort Option</option>
                 <option value="A">A to Z</option>
                 <option value="Z">Z to A</option>
-                <option value="rain asc">Most rain</option>
-                <option value="rain desc">Least rain</option>
+                <option value="asc24">Most rain 24hr</option>
+                <option value="des24">Least rain 24 hr</option>
+                <option value="asc48">Most rain 48 hr</option>
+                <option value="des48">Least rain 48 hr</option>
+                <option value="asc72">Most rain 72 hr</option>
+                <option value="des72">Least rain 72 hr</option>
               </Form.Select>
             </Col>
             <Col>

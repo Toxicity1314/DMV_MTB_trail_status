@@ -4,14 +4,15 @@ import TrailSystemsForm from "./TrailSystemsForm";
 import TrailSystemsPagination from "./TrailSystemsPagination";
 import { TrailSystemGrid } from "../styles";
 import { FormDataContext } from "../../context/formDataContext";
+import { ActiveContext } from "../../context/ActiveContext";
 
 function TrailSystems() {
   const [trailSystems, setTrailSystems] = useState([]);
-  const [active, setActive] = useState(1);
   const [trailCount, setTrailCount] = useState(0);
-  const { formData } = useContext(FormDataContext);
-  const { setFormData } = useContext(FormDataContext);
-  //change active to useContext
+  const { formData, setFormData } = useContext(FormDataContext);
+  const {active, setActive} = useContext(ActiveContext)
+
+  //Fetch data and handle errors
   useEffect(() => {
     fetch(`/trail_systems`)
       .then((r) => r.json())
@@ -24,6 +25,7 @@ function TrailSystems() {
       });
   }, []);
 
+  //Memoized calculations
   const maxActive = useMemo(() => {
     return Math.ceil(trailCount / formData.trailsPerPage);
   }, [trailCount, formData.trailsPerPage]);
@@ -32,7 +34,6 @@ function TrailSystems() {
     return active >= maxActive;
   }, [active, maxActive]);
 
-  //Why does useMemo work and how???
   const filteredTrails = useMemo(() => {
     let trails = trailSystems.filter((trail) =>
       trail.name.toLowerCase().includes(formData.search.toLowerCase())
@@ -42,7 +43,7 @@ function TrailSystems() {
     }
     setTrailCount(trails.length);
     return trails;
-  }, [formData.search, trailSystems, activeToLarge, maxActive, trailCount]);
+  }, [formData.search, trailSystems, activeToLarge, maxActive, trailCount, setActive]);
 
   const sortedTrails = useMemo(() => {
     let hours = formData.sort.slice(3);

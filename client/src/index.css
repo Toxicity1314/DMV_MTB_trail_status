@@ -17,7 +17,7 @@ code {
     monospace;
 }
 
-.picture_wrap{
+/* .picture_wrap{
   position: absolute;
   top: 10;
 }
@@ -35,7 +35,7 @@ color: black;
   visibility: visible;
   opacity: 1;
 
-}
+} */
 .NavBar{
   text-align: center;
   color:white;
@@ -46,7 +46,7 @@ color: black;
   text-decoration: none;
 }
 
-.about{
+/* .about{
   margin-left: 10%;
   margin-right: 10%
 }
@@ -64,7 +64,7 @@ color: black;
 .caption {
   display: block;
   text-align: center;
-}
+} */
 .welcome{
   background-color: #4067db;
   margin-bottom: 2%;

@@ -21,4 +21,8 @@ class TrailSystem < ApplicationRecord
     minute = get_updated_at.min < 10 ? "0#{get_updated_at.min}": "#{get_updated_at.min}"
     time = "last updated on #{get_updated_at.month}/#{get_updated_at.day}/#{get_updated_at.year} at #{get_updated_at.hour}:#{minute} EST"
   end
+  def self.paginate page, per_page, order_option
+    trail_systems = all.order(order_option)
+    trail_systems
+  end
 end

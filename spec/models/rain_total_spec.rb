@@ -45,7 +45,6 @@ end
   describe ".precip" do
     context "given 72 hours" do
       it "returns 72" do
-        debugger
         expect(RainTotal.precip(1, 259200)).to eq(72)
       end
     end

@@ -56,7 +56,24 @@ RSpec.describe TrailSystem, type: :model do
   describe ".paginate" do
     context "given page 1, per_page 3, order_option name" do
       it "returns carv fred locust" do
-        expect(TrailSystem.paginate(1, 3,"name")). to eq([@ts2, @ts1, @ts4])
+        expect(TrailSystem.paginate(1, 3,"name")).to match_array([@ts2, @ts4, @ts1])
+      end
+    end
+    context "given page 2, per_page 2, order_option name" do
+      it "returns carv fred locust" do
+        expect(TrailSystem.paginate(2, 2,"name")).to match_array([@ts3, @ts4])
+      end
+    end
+
+    context "given page 2, per_page 2, order_option name DESC" do
+      it "returns carv fred locust" do
+        expect(TrailSystem.paginate(2, 2,"name DESC")).to match_array([@ts2, @ts1])
+      end
+    end
+
+    context "given page 2, per_page 2, order_option name DESC" do
+      it "returns carv fred locust" do
+        expect(TrailSystem.paginate(2, 2,"name DESC")).to match_array([@ts2, @ts1])
       end
     end
 

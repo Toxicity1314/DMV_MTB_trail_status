@@ -4,7 +4,7 @@ RSpec.describe RainTotal, type: :model do
   before do 
     time = Time.now.to_i
 
-    TrailSystem.create(
+    @ts1 = TrailSystem.create(
     name: "Fredericksburg Quarry",
     lat: 38.3165,
     long: -77.4856,
@@ -19,17 +19,17 @@ RSpec.describe RainTotal, type: :model do
   72.times do
     time-=3600
     RainTotal.create(
-    precipitation_last_hour: 1,
-    hour: time,
-    trail_system_id: 1
-  )
+      precipitation_last_hour: 1,
+      hour: time,
+      trail_system_id: @ts1.id
+    )
   end
 
 end
   describe ".precip" do
     context "given 24 hours" do
       it "returns 24" do
-        expect(RainTotal.precip(1, 86400)).to eq(24)
+        expect(RainTotal.precip(@ts1, 86400)).to eq(24)
       end
     end
   end
@@ -37,7 +37,7 @@ end
   describe ".precip" do
     context "given 48 hours" do
       it "returns 48" do
-        expect(RainTotal.precip(1, 172800)).to eq(48)
+        expect(RainTotal.precip(@ts1, 172800)).to eq(48)
       end
     end
   end
@@ -45,7 +45,7 @@ end
   describe ".precip" do
     context "given 72 hours" do
       it "returns 72" do
-        expect(RainTotal.precip(1, 259200)).to eq(72)
+        expect(RainTotal.precip(@ts1, 259200)).to eq(72)
       end
     end
   end

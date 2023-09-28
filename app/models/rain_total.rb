@@ -8,10 +8,14 @@ class RainTotal < ApplicationRecord
     time = Time.now.to_i - time_frame
     precip_list =
       self.where(hour: (time)..(Time.now.to_i), trail_system_id: trail_id)
-
+      
     precip_list.each do |hour|
       precip_total += hour.precipitation_last_hour
     end
     precip_total.round(3)
+  end
+
+  def self.testing first, second
+    first + second
   end
 end

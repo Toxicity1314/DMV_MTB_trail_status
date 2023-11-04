@@ -10,24 +10,26 @@ function TrailSystemsForm({ setActive, formData, setFormData }) {
     const value =
       e.target.name === "trailsPerPage"
         ? parseInt(e.target.value)
+        : e.target.name === "listView"
+        ? e.target.checked
         : e.target.value;
     setFormData({ ...formData, [name]: value });
     if (name === "search") setActive(1);
   };
 
   return (
-    <div>
-      <Container style={{ paddingBottom: "2%" }}>
+    <div className="narrow">
+      <Container className="centerPlease" style={{ paddingBottom: "2%" }}>
         <Form>
           <Row>
             <Col>
-              <Form.Label className="centerPlease">Sort</Form.Label>
+              {/* <Form.Label className="centerPlease">Sort</Form.Label> */}
               <Form.Select
                 onChange={(e) => handleFormChange(e)}
                 value={formData.sort}
                 name="sort"
               >
-                <option value="">Please select a Sort Option</option>
+                <option value="">Sort by</option>
                 <option value="A">A to Z</option>
                 <option value="Z">Z to A</option>
                 <option value="asc24">Most rain 24hr</option>
@@ -39,7 +41,7 @@ function TrailSystemsForm({ setActive, formData, setFormData }) {
               </Form.Select>
             </Col>
             <Col>
-              <Form.Label className="centerPlease">Search</Form.Label>
+              {/* <Form.Label className="centerPlease">Search</Form.Label> */}
               <Form.Control
                 name="search"
                 placeholder="Search"
@@ -48,12 +50,13 @@ function TrailSystemsForm({ setActive, formData, setFormData }) {
               />
             </Col>
             <Col>
-              <Form.Label className="centerPlease">trails per page</Form.Label>
+              {/* <Form.Label className="centerPlease">trails per page</Form.Label> */}
               <Form.Select
                 onChange={handleFormChange}
                 value={formData.trailsPerPage}
                 name="trailsPerPage"
               >
+                <option value="0">trails per page</option>
                 <option value="4">4</option>
                 <option value="8">8</option>
                 <option value="16">16</option>
@@ -63,6 +66,14 @@ function TrailSystemsForm({ setActive, formData, setFormData }) {
           </Row>
         </Form>
       </Container>
+
+      <Form.Check // prettier-ignore
+        type="switch"
+        id="custom-switch"
+        label="List view"
+        name="listView"
+        onChange={handleFormChange}
+      />
     </div>
   );
 }

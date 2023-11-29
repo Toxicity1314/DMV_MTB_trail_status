@@ -1,3 +1,3 @@
-class WeatherDataControllerController < ApplicationController
+class WeatherDataController < ApplicationController
     
 end

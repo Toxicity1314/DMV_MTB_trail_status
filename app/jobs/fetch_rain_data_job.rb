@@ -29,9 +29,7 @@ class FetchRainDataJob < ApplicationJob
               soil_temp: response["hourly"]["soil_temperature_6cm"][i]
 
             )
-            # puts "updated #{rain}"
           else
-            debugger
             new_rain =
               WeatherData.create(
                 trail_system_id: trail_system.id,

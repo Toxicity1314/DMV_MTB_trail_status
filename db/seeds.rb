@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 Comment.delete_all
 Issue.delete_all
-RainTotal.delete_all
+WeatherData.delete_all
 Trail.delete_all
 User.delete_all
 TrailSystem.delete_all
@@ -783,15 +783,16 @@ epoch_time = Time.now.to_i
 TrailSystem.all.each do |trail_system|
   response =
     HTTParty.get(
-      "https://api.open-meteo.com/v1/forecast?latitude=#{trail_system.lat}&longitude=#{trail_system.long}&hourly=precipitation&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York&past_days=4",
+      "https://api.open-meteo.com/v1/forecast?latitude=#{trail_system.lat}&longitude=#{trail_system.long}&hourly=precipitation,soil_temperature_6cm&temperature_unit=fahrenheit&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York&past_days=2",
     )
   i = 0
   response["hourly"]["time"].each do |time|
     if time < epoch_time
-      RainTotal.create(
+      WeatherData.create(
         trail_system_id: trail_system.id,
         precipitation_last_hour: response["hourly"]["precipitation"][i],
         hour: time,
+        soil_temp: response["hourly"]["soil_temperature_6cm"][i]
       )
       i += 1
     end

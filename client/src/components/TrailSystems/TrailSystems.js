@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useContext } from "react";
+import TrailSystemCardList from "./TrailSystemCardList";
 import TrailSystemList from "./TrailSystemList";
 import TrailSystemsForm from "./TrailSystemsForm";
 import TrailSystemsPagination from "./TrailSystemsPagination";
@@ -10,7 +11,7 @@ function TrailSystems() {
   const [trailSystems, setTrailSystems] = useState([]);
   const [trailCount, setTrailCount] = useState(0);
   const { formData, setFormData } = useContext(FormDataContext);
-  const {active, setActive} = useContext(ActiveContext)
+  const { active, setActive } = useContext(ActiveContext);
 
   //Fetch data and handle errors
   useEffect(() => {
@@ -27,7 +28,8 @@ function TrailSystems() {
 
   //Memoized calculations
   const maxActive = useMemo(() => {
-    return Math.ceil(trailCount / formData.trailsPerPage);
+    const trailsPerPage = formData.trailsPerPage || 8;
+    return Math.ceil(trailCount / trailsPerPage);
   }, [trailCount, formData.trailsPerPage]);
 
   const activeToLarge = useMemo(() => {
@@ -43,7 +45,14 @@ function TrailSystems() {
     }
     setTrailCount(trails.length);
     return trails;
-  }, [formData.search, trailSystems, activeToLarge, maxActive, trailCount, setActive]);
+  }, [
+    formData.search,
+    trailSystems,
+    activeToLarge,
+    maxActive,
+    trailCount,
+    setActive,
+  ]);
 
   const sortedTrails = useMemo(() => {
     let hours = formData.sort.slice(3);
@@ -65,8 +74,9 @@ function TrailSystems() {
   }, [formData.sort, filteredTrails]);
 
   const trailsToDisplay = useMemo(() => {
-    const start = (active - 1) * formData.trailsPerPage;
-    const end = start + formData.trailsPerPage;
+    const trailsPerPage = formData.trailsPerPage || 8;
+    const start = (active - 1) * trailsPerPage;
+    const end = start + trailsPerPage;
     return sortedTrails.slice(start, end);
   }, [active, sortedTrails, formData.trailsPerPage]);
 
@@ -79,7 +89,11 @@ function TrailSystems() {
           formData={formData}
           setFormData={setFormData}
         />
-        <TrailSystemList trailsToDisplay={trailsToDisplay} />
+        {formData.listView === false ? (
+          <TrailSystemCardList trailsToDisplay={trailsToDisplay} />
+        ) : (
+          <TrailSystemList trailsToDisplay={trailsToDisplay} />
+        )}
         <TrailSystemsPagination
           maxActive={maxActive}
           activeToLarge={activeToLarge}

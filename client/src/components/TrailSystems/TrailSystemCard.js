@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { TrailCardStyle } from "./styles";
-import favicon from "../favicon.ico";
+import { TrailCardStyle } from "../styles";
+import favicon from "../../favicon.ico";
 import { NavLink } from "react-router-dom";
 
 function TrailSystemCard({ trailSystem }) {

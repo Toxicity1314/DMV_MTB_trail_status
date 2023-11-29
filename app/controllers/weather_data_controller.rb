@@ -1,3 +1,3 @@
-class RainTotalsController < ApplicationController
+class WeatherDataController < ApplicationController
     
 end

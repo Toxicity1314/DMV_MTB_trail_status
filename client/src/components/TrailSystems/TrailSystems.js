@@ -74,9 +74,7 @@ function TrailSystems() {
   }, [formData.sort, filteredTrails]);
 
   const trailsToDisplay = useMemo(() => {
-    console.log(formData.trailsPerPage === "");
     const trailsPerPage = formData.trailsPerPage || 8;
-    console.log(trailsPerPage);
     const start = (active - 1) * trailsPerPage;
     const end = start + trailsPerPage;
     return sortedTrails.slice(start, end);

@@ -2,7 +2,20 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 
 function TrailSystemList({ trailsToDisplay }) {
-  console.log(trailsToDisplay);
+  const warning = (trailSystem) => {
+    if (trailSystem.freeze_thaw <= 30) return "Freeze thaw cycle";
+    if (trailSystem.last_24 <= 0.25) return "Ride on";
+    if (trailSystem.last_24 <= 0.5) return "Use caution trails may be muddy";
+    if (trailSystem.last_24 > 0.5) return "Avoid riding trails will be muddy";
+  };
+
+  const status = (trailSystem) => {
+    if (trailSystem.freeze_thaw <= 30) return <td>🔵</td>;
+    if (trailSystem.last_24 <= 0.25) return <td>🟢</td>;
+    if (trailSystem.last_24 <= 0.5) return <td>🟡</td>;
+    if (trailSystem.last_24 > 0.5) return <td>🔴</td>;
+  };
+
   return (
     <div className="g-4 centerPlease narrow">
       <Table bordered size="sm" hover variant="dark" striped>
@@ -19,18 +32,12 @@ function TrailSystemList({ trailsToDisplay }) {
         <tbody>
           {trailsToDisplay.map((trailSystem) => (
             <tr key={trailSystem.id}>
-              {trailSystem.last_24 <= 0.25 ? (
-                <td>🟢</td>
-              ) : trailSystem.last_24 <= 0.5 ? (
-                <td>🟡</td>
-              ) : (
-                <td>🔴</td>
-              )}
+              {status(trailSystem)}
               <td>{trailSystem.name}</td>
               <td>{trailSystem.last_24}</td>
               <td>{trailSystem.last_48}</td>
               <td>{trailSystem.last_72}</td>
-              <td>in progress</td>
+              <td>{warning(trailSystem)}</td>
             </tr>
           ))}
         </tbody>

@@ -72,6 +72,7 @@ function TrailSystemsForm({ setActive, formData, setFormData }) {
         id="custom-switch"
         label="List view"
         name="listView"
+        checked={formData.listView}
         onChange={handleFormChange}
       />
     </div>

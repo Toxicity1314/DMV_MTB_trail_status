@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_24_231135) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_04_181828) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,15 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_231135) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trail_id"], name: "index_issues_on_trail_id"
-  end
-
-  create_table "rain_totals", force: :cascade do |t|
-    t.float "precipitation_last_hour"
-    t.integer "hour"
-    t.bigint "trail_system_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["trail_system_id"], name: "index_rain_totals_on_trail_system_id"
   end
 
   create_table "trail_systems", force: :cascade do |t|
@@ -74,9 +65,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_231135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "weather_data", force: :cascade do |t|
+    t.float "precipitation_last_hour"
+    t.integer "hour"
+    t.bigint "trail_system_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "soil_temp"
+    t.index ["trail_system_id"], name: "index_weather_data_on_trail_system_id"
+  end
+
   add_foreign_key "comments", "trail_systems"
   add_foreign_key "comments", "users"
   add_foreign_key "issues", "trails"
-  add_foreign_key "rain_totals", "trail_systems"
   add_foreign_key "trails", "trail_systems"
+  add_foreign_key "weather_data", "trail_systems"
 end

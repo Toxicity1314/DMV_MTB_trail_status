@@ -6,6 +6,6 @@ class TrailSystemsController < ApplicationController
 
   def index
     trails = TrailSystem.all.order(:name)
-    render json: trails
+    render json: trails, each_serializer: TrailSystemListSerializer
   end
 end

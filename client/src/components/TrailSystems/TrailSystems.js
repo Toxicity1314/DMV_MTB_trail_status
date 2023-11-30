@@ -20,6 +20,7 @@ function TrailSystems() {
       .then((trails) => {
         setTrailSystems(trails);
         setTrailCount(trails.length);
+        console.log(trails)
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

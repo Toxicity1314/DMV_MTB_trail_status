@@ -1,73 +1,31 @@
 .App {
-  background-color: #113C1A;
+  background-color: #113c1a;
   color: white;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html{
-  background-color: #113C1A;
+html {
+  background-color: #113c1a;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-/* .picture_wrap{
-  position: absolute;
-  top: 10;
+.nav-link.active {
+  color: inherit;
+  text-decoration: none;
 }
-
-.text{
-position: absolute;
-top: 0;
-margin: 5%;
-visibility: hidden;
-opacity: 0;
-transition: opacity .2s, visibility .2s;
-color: black;
-}
-.picture_wrap:hover .text{
-  visibility: visible;
-  opacity: 1;
-
-} */
-.NavBar{
+.NavBar {
   text-align: center;
-  color:white;
+  color: white;
   padding-bottom: 2%;
 }
-.NavBarLink{
+.NavBarLink {
   padding-right: 1%;
   text-decoration: none;
 }
-
-/* .about{
-  margin-left: 10%;
-  margin-right: 10%
-}
-
-.imageSetup {
-  vertical-align: top;
-  display: inline-block;
-  margin-bottom: 2%;
-
-}
-.picture {
-  width: 90%;
-  background-color: grey;
-}
-.caption {
-  display: block;
-  text-align: center;
-} */
-.welcome{
-  background-color: #4067db;
-  margin-bottom: 2%;
-
-}
-

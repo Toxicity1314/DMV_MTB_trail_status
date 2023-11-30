@@ -1,5 +1,6 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import { NavLink } from "react-router-dom";
 
 function TrailSystemList({ trailsToDisplay }) {
   const warning = (trailSystem) => {
@@ -33,7 +34,14 @@ function TrailSystemList({ trailsToDisplay }) {
           {trailsToDisplay.map((trailSystem) => (
             <tr key={trailSystem.id}>
               {status(trailSystem)}
-              <td>{trailSystem.name}</td>
+              <td>
+                <NavLink
+                  to={`/TrailSystem/${trailSystem.id}`}
+                  className="nav-link"
+                >
+                  {trailSystem.name}
+                </NavLink>
+              </td>
               <td>{trailSystem.last_24}</td>
               <td>{trailSystem.last_48}</td>
               <td>{trailSystem.last_72}</td>

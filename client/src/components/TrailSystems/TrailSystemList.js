@@ -24,9 +24,9 @@ function TrailSystemList({ trailsToDisplay }) {
           <tr>
             <th>status</th>
             <th>trail name</th>
-            <th>rain 24hr</th>
-            <th>rain 48hr</th>
-            <th>rain 72hr</th>
+            <th>rain 24hr (in.)</th>
+            <th>rain 48hr (in.)</th>
+            <th>rain 72hr (in.)</th>
             <th>warning</th>
           </tr>
         </thead>

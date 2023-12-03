@@ -109,6 +109,7 @@ function TrailPage() {
             </div>
           </Col>
         </Row> */}
+        <a href="https://open-meteo.com/">Weather data provided by Open-Meteo.com</a>
       </div>
     </TrailPageStyles>
   );

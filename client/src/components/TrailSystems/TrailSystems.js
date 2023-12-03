@@ -101,6 +101,7 @@ function TrailSystems() {
           setActive={setActive}
         />
       </div>
+      <a href="https://open-meteo.com/">Weather data provided by Open-Meteo.com</a>
     </TrailSystemGrid>
   );
 }

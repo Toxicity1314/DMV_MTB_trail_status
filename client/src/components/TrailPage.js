@@ -81,7 +81,7 @@ function TrailPage() {
         <h3 className="trailPageCenter">{trail.get_last_updated}</h3>
         {trail && <Forcast trail={trail} />}
         <div className="map">{trail ? <TrailMap trail={trail} /> : ""}</div>
-        <Row>
+        {/* <Row>
           <Col>
             {issues.length > 0 ? <h3>Issues reported</h3> : ""}
             <ul>{issues}</ul>
@@ -108,7 +108,7 @@ function TrailPage() {
               <Stack gap={3}>{comments}</Stack>
             </div>
           </Col>
-        </Row>
+        </Row> */}
       </div>
     </TrailPageStyles>
   );

@@ -124,7 +124,7 @@ function ProblemForm({ handleClose, trail, setTrail }) {
           )}
           {errorHandler("Issue")}
         </Row>
-        {/* <Row className="mb-5">
+        <Row className="mb-5">
           <Form.Label>description</Form.Label>
           <Form.Control
             as="textarea"
@@ -134,7 +134,7 @@ function ProblemForm({ handleClose, trail, setTrail }) {
             onChange={(e) => handleChange(e)}
             value={formData.username}
           />
-        </Row> */}
+        </Row>
         <Row className="mb-5">
           <Button type="submit">Submit form</Button>
         </Row>

@@ -9,7 +9,7 @@ function FormDataProvider({ children }) {
     sort: "",
     search: "",
     trailsPerPage: "",
-    listView: false,
+    listView: true,
   });
   // the value prop of the provider will be our context data
   // this value will be available to child components of this provider

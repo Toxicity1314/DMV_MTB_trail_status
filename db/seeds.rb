@@ -798,7 +798,5 @@ TrailSystem.all.each do |trail_system|
     end
   end
 end
-User.create(username: "Admin", first_name: "Admin", last_name: "Admin", email: "Admin@Admin.com", password: "Admin1314", admin: true)
-User.create(username: "Toxicity1314", first_name: "Sean", last_name: "Welsh", email: "Sean@Welsh.com", password: "Hatebreed1314", admin: false)
 
 puts "Seeding Finished"
